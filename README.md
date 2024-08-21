@@ -6,6 +6,6 @@ dan melakukan pembayaran melalui integrasi dengan Stripe API. Selain itu, penggu
 dan pembelian barang bekas yang sebelumnya sulit ditemukan secara daring.
 
 ## Kelompok 10
-Anggota 1: Muhammad Grandiv Lava Putra - 22/493242/TK/54023
+Anggota 1: Melvin Waluyo - 22/492978/TK/53972
 Anggota 2: Alexander Johan Pramudito - 22/492990/TK/53976
-Anggota 3: 
+Anggota 3: Muhammad Grandiv Lava Putra - 22/493242/TK/54023
