@@ -9,3 +9,6 @@ dan pembelian barang bekas yang sebelumnya sulit ditemukan secara daring.
 Anggota 1: Melvin Waluyo - 22/492978/TK/53972
 Anggota 2: Alexander Johan Pramudito - 22/492990/TK/53976
 Anggota 3: Muhammad Grandiv Lava Putra - 22/493242/TK/54023
+
+## Demeter - Class Diagram
+![Demeter_Class_Diagram](https://github.com/grandiv/Demeter-Proyek-Junior-2024/blob/main/UML%20Diagrams/Demeter_ClassDiagram.png)
