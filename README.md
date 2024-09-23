@@ -17,4 +17,4 @@ Anggota 3: Muhammad Grandiv Lava Putra - 22/493242/TK/54023
 ![Demeter_Class_Diagram](https://github.com/grandiv/Demeter-Proyek-Junior-2024/blob/main/UML%20Diagrams/Demeter_ClassDiagram.png)
 
 ## Demeter - Entity Relationship Diagram
-![Demeter Entity Relationship Diagram](https://github.com/grandiv/Demeter-Proyek-Junior-2024/blob/main/UML%20Diagrams/Demeter_ERDv2.png)
+![Demeter Entity Relationship Diagram](https://github.com/grandiv/Demeter-Proyek-Junior-2024/blob/main/UML%20Diagrams/Demeter_ERDv3.png)
