@@ -73,7 +73,7 @@
                     <!-- Role Selection Field -->
                     <TextBlock Text="Choose your role" FontSize="16" Foreground="#8f8e8e" Margin="0,0,0,10"/>
                     <ComboBox FontSize="14" Style="{DynamicResource theComboBox}" Padding="15,5,15,5" HorizontalContentAlignment="Left" VerticalAlignment="Center" Height="50"  MinWidth="100" MaxWidth="350" Grid.Row="1" Grid.Column="1" ItemContainerStyle="{DynamicResource theComboBoxItem}" >
-                        <ComboBoxItem Content="Buyer"/>
+                        <ComboBoxItem Content="Customer"/>
                         <ComboBoxItem Content="Seller"/>
                     </ComboBox>
 
