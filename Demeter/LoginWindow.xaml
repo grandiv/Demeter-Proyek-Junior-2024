@@ -44,7 +44,10 @@
 
                 <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20">
                     <TextBlock Text="Login" FontSize="35" FontWeight="Regular"  Foreground="#004b0c" HorizontalAlignment="Center" Style="{StaticResource txtTitle}" Margin="0,-6,0,-11" Visibility="Visible"/>
-                    <TextBlock Text="Sign In to Continue" FontSize="22"  Foreground="#004b0c" HorizontalAlignment="Center" Cursor="Hand" FontFamily="Segoe UI Light" Style="{StaticResource txtTitle}" Margin="0,4,0,-5"/>
+                    <TextBlock FontSize="22" Foreground="#004b0c" HorizontalAlignment="Center" FontFamily="Segoe UI Light" Style="{StaticResource txtTitle}" Margin="0,10,0,-5">
+                        <Run Text="Don't have an account?" />
+                        <Run Text="Register" Cursor="Hand" FontWeight="Bold" Foreground="#004b0c" MouseLeftButtonDown="RegisterTextBlock_MouseLeftButtonDown" />
+                    </TextBlock>
                 </StackPanel>
 
                 <!-- StackPanel for Labels and Input fields in the second row -->

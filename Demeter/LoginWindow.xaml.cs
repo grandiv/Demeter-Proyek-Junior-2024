@@ -23,5 +23,16 @@ namespace Demeter
         {
             InitializeComponent();
         }
+        private void RegisterTextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Create a new instance of LoginWindow
+            RegisterWindow registerWindow = new RegisterWindow();
+
+            // Show the LoginWindow
+            registerWindow.Show();
+
+            // Close the current RegisterWindow
+            this.Close();
+        }
     }
 }
