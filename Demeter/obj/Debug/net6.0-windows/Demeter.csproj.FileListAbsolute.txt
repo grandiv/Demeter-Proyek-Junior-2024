@@ -26,14 +26,12 @@ C:\Projects\Proyek-Junior-TIF\Demeter\bin\Debug\net6.0-windows\Demeter.runtimeco
 C:\Projects\Proyek-Junior-TIF\Demeter\bin\Debug\net6.0-windows\Demeter.dll
 C:\Projects\Proyek-Junior-TIF\Demeter\bin\Debug\net6.0-windows\Demeter.pdb
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\Login.g.cs
-C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\Register.g.cs
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\RegisterWindow.g.cs
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\App.g.cs
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\Demeter_MarkupCompile.cache
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\Demeter_MarkupCompile.lref
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\App.baml
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\Login.baml
-C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\Register.baml
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\RegisterWindow.baml
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\Demeter.g.resources
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\Demeter.GeneratedMSBuildEditorConfig.editorconfig
