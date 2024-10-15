@@ -1,0 +1,87 @@
+﻿<Window x:Class="Demeter.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demeter"
+        mc:Ignorable="d"
+        Title="RegisterWindow" Height="800" Width="1280">
+
+    <!-- Define Grid layout with two columns -->
+    <Grid>
+        <!-- Background Image -->
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/Register.png" Stretch="UniformToFill" Opacity="0" />
+        </Grid.Background>
+        
+        <!-- Main Grid with two columns for alignment -->
+        <Grid ShowGridLines="False">
+            <!-- Define Two Columns: left for the logo area and right for the form -->
+            <Grid.ColumnDefinitions>
+                <!-- Left column for the logo and "Create a New Account" (background) -->
+                <ColumnDefinition Width="*" />
+                <!-- Right column for the form -->
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Section Grid Line and Logo-->
+            <Rectangle Grid.Column="0" Fill="#a5d4c6" Visibility="Visible"/>
+            <Border Grid.Column="0" BorderBrush="#004b0c" BorderThickness="0,0,1,0"></Border>
+            <Image Source="/Images/DemeterLogo.png" Visibility="Visible" Width="603" Height="483" Margin="0,35,0,0"></Image>
+
+            <!-- Nested Grid in the Right Column -->
+            <Grid Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ShowGridLines="False">
+                <!-- Define two rows: one for the spacing area from top to the green line, and one for the form below -->
+                <Grid.RowDefinitions>
+                    <!-- Adjusting the first row to match the correct spacing up to the green line -->
+                    <RowDefinition Height="203" />
+                    <!-- The second row contains the form -->
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!--Right Section Grid Line-->
+                <Border Grid.Row="0" BorderBrush="#004b0c" BorderThickness="0,0,0,1"></Border>
+
+                <!-- Text section: "Create a New Account" and "Already Registered? Login" -->
+                <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20">
+                    <TextBlock Text="Create a New" FontSize="35" FontWeight="Regular"  Foreground="#004b0c" HorizontalAlignment="Center" Style="{StaticResource txtTitle}" Margin="0,-6,0,-11" Visibility="Visible"/>
+                    <TextBlock Text="Account" FontSize="35" FontWeight="Regular"  Foreground="#004b0c" HorizontalAlignment="Center" Style="{StaticResource txtTitle}" Margin="0,3,0,-1" Visibility="Visible"/>
+                    <TextBlock Text="Already  Registered?  Login" FontSize="22"  Foreground="#004b0c" HorizontalAlignment="Center" Cursor="Hand" FontFamily="Segoe UI Light" Style="{StaticResource txtTitle}" Margin="0,4,0,-5"/>
+                </StackPanel>
+
+                <!-- StackPanel for Labels and Input fields in the second row -->
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="350" Margin="0,0,0,0">
+
+                    <!-- Username Field -->
+                    <TextBlock Text="Enter your username" FontSize="16" Foreground="#8f8e8e" Margin="0,0,0,10"/>
+                    <Border Height="50" Width="350" CornerRadius="5" BorderBrush="#b8b9bb" BorderThickness="1" Margin="0,0,0,30">
+                        <TextBox Background="Transparent" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" Padding="10,0,10,0"/>
+                    </Border>
+
+                    <!-- Email Field -->
+                    <TextBlock Text="Enter your email" FontSize="16" Foreground="#8f8e8e" Margin="0,0,0,10"/>
+                    <Border Height="50" Width="350" CornerRadius="5" BorderBrush="#b8b9bb" BorderThickness="1" Margin="0,0,0,30">
+                        <TextBox Background="Transparent" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" Padding="10,0,10,0"/>
+                    </Border>
+
+                    <!-- Password Field -->
+                    <TextBlock Text="Please enter password" FontSize="16" Foreground="#8f8e8e" Margin="0,0,0,10"/>
+                    <Border Height="50" Width="350" CornerRadius="5" BorderBrush="#b8b9bb" BorderThickness="1" Margin="0,0,0,30">
+                        <PasswordBox Background="Transparent" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" Padding="10,0,10,0"/>
+                    </Border>
+
+                    <!-- Role Selection Field -->
+                    <TextBlock Text="Choose your role" FontSize="16" Foreground="#8f8e8e" Margin="0,0,0,10"/>
+                    <ComboBox FontSize="14" Style="{DynamicResource theComboBox}" Padding="15,5,15,5" HorizontalContentAlignment="Left" VerticalAlignment="Center" Height="50"  MinWidth="100" MaxWidth="350" Grid.Row="1" Grid.Column="1" ItemContainerStyle="{DynamicResource theComboBoxItem}" >
+                        <ComboBoxItem Content="Buyer"/>
+                        <ComboBoxItem Content="Seller"/>
+                    </ComboBox>
+
+                    <!-- Sign Up Button -->
+                    <Button Content="SIGN UP" Width="250" Height="45" Style="{StaticResource btnRegister}" HorizontalAlignment="Center" Margin="0,40,0,0" />
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

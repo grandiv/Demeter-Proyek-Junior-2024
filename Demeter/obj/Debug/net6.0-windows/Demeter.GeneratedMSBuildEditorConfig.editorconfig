@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Demeter
-build_property.ProjectDir = C:\Users\Melvin\Documents\Projun Melvin\Demeter-Proyek-Junior-2024\Demeter\
+build_property.ProjectDir = E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
