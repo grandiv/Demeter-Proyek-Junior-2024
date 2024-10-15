@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demeter", "Demeter.csproj", "{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {022E1924-8FC2-48D2-BF56-DEFBE82EFA49}
+	EndGlobalSection
+EndGlobal
