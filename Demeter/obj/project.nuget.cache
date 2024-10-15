@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y6wR31PMyMT7ZmtAGtIfxffEo8jJ++2rfHL56y0gBfIZBzB9vGyL87qBoNKO+N2amtTD+MHxbUJfBj8Jo7EGXA==",
+  "dgSpecHash": "oWtgMxuhEwE=",
   "success": true,
-  "projectFilePath": "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\Demeter.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\MASTER CORE\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.30\\microsoft.windowsdesktop.app.ref.6.0.30.nupkg.sha512",
-    "C:\\Users\\MASTER CORE\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.30\\microsoft.netcore.app.ref.6.0.30.nupkg.sha512",
-    "C:\\Users\\MASTER CORE\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.30\\microsoft.aspnetcore.app.ref.6.0.30.nupkg.sha512",
-    "C:\\Users\\MASTER CORE\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.30\\microsoft.netcore.app.host.win-x64.6.0.30.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Projects\\Proyek-Junior-TIF\\Demeter\\Demeter.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

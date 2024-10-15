@@ -53,7 +53,7 @@ namespace Demeter {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Demeter;V1.0.0.0;component/register.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Demeter;component/register.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Register.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
