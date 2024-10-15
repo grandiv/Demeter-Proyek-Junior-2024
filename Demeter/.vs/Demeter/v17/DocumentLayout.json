@@ -1,0 +1,60 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projects\\Proyek-Junior-TIF\\Demeter\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DDC7C83F-E11F-416C-844C-77A48A01E499}|Demeter.csproj|c:\\projects\\proyek-junior-tif\\demeter\\register.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DDC7C83F-E11F-416C-844C-77A48A01E499}|Demeter.csproj|solutionrelative:register.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDC7C83F-E11F-416C-844C-77A48A01E499}|Demeter.csproj|c:\\projects\\proyek-junior-tif\\demeter\\login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DDC7C83F-E11F-416C-844C-77A48A01E499}|Demeter.csproj|solutionrelative:login.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.xaml",
+              "DocumentMoniker": "C:\\Projects\\Proyek-Junior-TIF\\Demeter\\Login.xaml",
+              "RelativeDocumentMoniker": "Login.xaml",
+              "ToolTip": "C:\\Projects\\Proyek-Junior-TIF\\Demeter\\Login.xaml",
+              "RelativeToolTip": "Login.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-15T06:16:36.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.xaml",
+              "DocumentMoniker": "C:\\Projects\\Proyek-Junior-TIF\\Demeter\\Register.xaml",
+              "RelativeDocumentMoniker": "Register.xaml",
+              "ToolTip": "C:\\Projects\\Proyek-Junior-TIF\\Demeter\\Register.xaml",
+              "RelativeToolTip": "Register.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-15T06:16:08.109Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
