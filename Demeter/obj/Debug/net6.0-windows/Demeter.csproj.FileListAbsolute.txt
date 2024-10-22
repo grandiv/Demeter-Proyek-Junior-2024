@@ -44,3 +44,16 @@ C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\Demeter.genruntim
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\ref\Demeter.dll
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\LoginWindow.g.cs
 C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\LoginWindow.baml
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\LoginWindow.g.cs
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\LoginWindow.baml
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Npgsql.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\System.Text.Json.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\Demeter.csproj.AssemblyReference.cache
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\Demeter.csproj.Up2Date
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\BCrypt.Net-Next.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\dotenv.net.dll

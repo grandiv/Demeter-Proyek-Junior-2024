@@ -36,5 +36,19 @@ namespace Demeter
             // Close the current RegisterWindow
             this.Close();
         }
+
+        private void SignUpButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Assuming TextBoxes for username, email, password, and ComboBox for role.
+            string username = UsernameTextBox.Text;
+            string email = EmailTextBox.Text;
+            string password = PasswordBox.Password;
+            string role = ((ComboBoxItem)RoleComboBox.SelectedItem).Content.ToString();
+
+            User user = new User(username, password, email, role);
+            user.Register();
+
+            MessageBox.Show("User registered successfully!");
+        }
     }
 }

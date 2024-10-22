@@ -8,9 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".env" />
     <None Remove="Images\DemeterLogo.png" />
     <None Remove="Images\Login.png" />
     <None Remove="Images\Register.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="dotenv.net" Version="3.2.1" />
+    <PackageReference Include="Npgsql" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup>
