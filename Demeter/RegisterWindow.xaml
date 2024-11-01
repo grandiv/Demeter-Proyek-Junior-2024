@@ -9,11 +9,6 @@
 
     <!-- Define Grid layout with two columns -->
     <Grid>
-        <!-- Background Image -->
-        <Grid.Background>
-            <ImageBrush ImageSource="/Images/Register.png" Stretch="UniformToFill" Opacity="0" />
-        </Grid.Background>
-        
         <!-- Main Grid with two columns for alignment -->
         <Grid ShowGridLines="False">
             <!-- Define Two Columns: left for the logo area and right for the form -->
