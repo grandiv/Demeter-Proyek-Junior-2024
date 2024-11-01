@@ -9,11 +9,6 @@
 
     <!-- Define Grid layout with two columns -->
     <Grid>
-        <!-- Background Image -->
-        <Grid.Background>
-            <ImageBrush ImageSource="/Images/Register.png" Stretch="UniformToFill" Opacity="0" />
-        </Grid.Background>
-        
         <!-- Main Grid with two columns for alignment -->
         <Grid ShowGridLines="False">
             <!-- Define Two Columns: left for the logo area and right for the form -->
@@ -59,30 +54,30 @@
                     <!-- Username Field -->
                     <TextBlock Text="Enter your username" FontSize="16" Foreground="#8f8e8e" Margin="0,0,0,10"/>
                     <Border Height="50" Width="350" CornerRadius="5" BorderBrush="#b8b9bb" BorderThickness="1" Margin="0,0,0,30">
-                        <TextBox Background="Transparent" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" Padding="10,0,10,0"/>
+                        <TextBox Name="UsernameTextBox" Background="Transparent" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" Padding="10,0,10,0"/>
                     </Border>
 
                     <!-- Email Field -->
                     <TextBlock Text="Enter your email" FontSize="16" Foreground="#8f8e8e" Margin="0,0,0,10"/>
                     <Border Height="50" Width="350" CornerRadius="5" BorderBrush="#b8b9bb" BorderThickness="1" Margin="0,0,0,30">
-                        <TextBox Background="Transparent" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" Padding="10,0,10,0"/>
+                        <TextBox Name="EmailTextBox" Background="Transparent" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" Padding="10,0,10,0"/>
                     </Border>
 
                     <!-- Password Field -->
                     <TextBlock Text="Please enter password" FontSize="16" Foreground="#8f8e8e" Margin="0,0,0,10"/>
                     <Border Height="50" Width="350" CornerRadius="5" BorderBrush="#b8b9bb" BorderThickness="1" Margin="0,0,0,30">
-                        <PasswordBox Background="Transparent" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" Padding="10,0,10,0"/>
+                        <PasswordBox Name="PasswordBox" Background="Transparent" BorderThickness="0" FontSize="14" VerticalContentAlignment="Center" Padding="10,0,10,0"/>
                     </Border>
 
                     <!-- Role Selection Field -->
                     <TextBlock Text="Choose your role" FontSize="16" Foreground="#8f8e8e" Margin="0,0,0,10"/>
-                    <ComboBox FontSize="14" Style="{DynamicResource theComboBox}" Padding="15,5,15,5" HorizontalContentAlignment="Left" VerticalAlignment="Center" Height="50"  MinWidth="100" MaxWidth="350" Grid.Row="1" Grid.Column="1" ItemContainerStyle="{DynamicResource theComboBoxItem}" >
+                    <ComboBox Name="RoleComboBox" FontSize="14" Style="{DynamicResource theComboBox}" Padding="15,5,15,5" HorizontalContentAlignment="Left" VerticalAlignment="Center" Height="50"  MinWidth="100" MaxWidth="350" Grid.Row="1" Grid.Column="1" ItemContainerStyle="{DynamicResource theComboBoxItem}" >
                         <ComboBoxItem Content="Customer"/>
                         <ComboBoxItem Content="Seller"/>
                     </ComboBox>
 
                     <!-- Sign Up Button -->
-                    <Button Content="SIGN UP" Width="250" Height="45" Style="{StaticResource btnRegister}" HorizontalAlignment="Center" Margin="0,40,0,0" />
+                    <Button Content="SIGN UP" Width="250" Height="45" Style="{StaticResource btnRegister}" HorizontalAlignment="Center" Margin="0,40,0,0" Click="SignUpButton_Click"/>
 
                 </StackPanel>
             </Grid>

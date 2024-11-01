@@ -34,5 +34,26 @@ namespace Demeter
             // Close the current RegisterWindow
             this.Close();
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Capture username and password from UI fields
+            string username = UsernameTextBox.Text;
+            string password = PasswordBox.Password;
+
+            // Create a new User instance and call the Login method
+            User user = new User();
+            bool isAuthenticated = user.Login(username, password);
+
+            if (isAuthenticated)
+            {
+                MessageBox.Show("Login successful!");
+                // Navigate to the main dashboard or another window
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
+            }
+        }
     }
 }

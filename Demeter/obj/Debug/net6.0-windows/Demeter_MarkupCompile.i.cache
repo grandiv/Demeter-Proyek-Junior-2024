@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Projects\Proyek-Junior-TIF\Demeter\obj\Debug\net6.0-windows\
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\
 Demeter
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Projects\Proyek-Junior-TIF\Demeter\App.xaml
-21846837518
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\App.xaml
+3-136036209
 
-141047845023
-194975967418
-LoginWindow.xaml;RegisterWindow.xaml;
+151647150072
+1991111958677
+CustomerDashboard.xaml;LoginWindow.xaml;RegisterWindow.xaml;
 
-True
+False
 
