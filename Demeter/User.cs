@@ -29,7 +29,7 @@ namespace Demeter
             this.role = role;
         }
 
-        string connectionString = "Host=demeterserver.postgres.database.azure.com;Port=5432;Username=demeter;Password=JunproA69420;Database=demeterdb";
+        string connectionString = "Host=demeterserver.postgres.database.azure.com;Port=5432;Username=demeter;Password=MasukkanPassword;Database=demeterdb";
 
         public void Register()
         {
