@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
 using BCrypt.Net;
+using System.Configuration;
 
 namespace Demeter
 {
@@ -29,7 +30,7 @@ namespace Demeter
             this.role = role;
         }
 
-        string connectionString = "Host=demeterserver.postgres.database.azure.com;Port=5432;Username=demeter;Password=MasukkanPassword;Database=demeterdb";
+        string connectionString = ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString;
 
         public void Register()
         {
