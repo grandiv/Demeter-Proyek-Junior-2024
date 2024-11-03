@@ -72,7 +72,7 @@
                             <ImageBrush ImageSource="/Images/DefaultProfile.png"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <TextBlock Text="Melvin Johan Grandiv" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                    <TextBlock Text="Masukkan Nama" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,0"/>
                 </StackPanel>
 
                 <!-- Account and Personal Information -->
@@ -93,10 +93,10 @@
                             </Grid.RowDefinitions>
 
                             <TextBlock Text="Username" FontSize="32" Grid.Row="0" Grid.Column="0" Margin="0,0,0,10"/>
-                            <TextBlock Text="akuganteng123" FontSize="32" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
+                            <TextBlock x:Name="UsernameTextBlock" Text="Masukkan Username" FontSize="32" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
 
                             <TextBlock Text="Email" Grid.Row="1" FontSize="32" Grid.Column="0" Margin="0,0,0,10"/>
-                            <TextBlock Text="grandivfarand@gmail.com" FontSize="32" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
+                            <TextBlock  x:Name="EmailTextBlock" Text="Masukkan Email" FontSize="32" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
 
                             <TextBlock Text="Password" Grid.Row="2" FontSize="32" Grid.Column="0" Margin="0,0,0,10"/>
                             <TextBlock Text="**************" Grid.Row="2" FontSize="32" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
@@ -125,13 +125,13 @@
                             </Grid.RowDefinitions>
 
                             <TextBlock Text="Nama" Grid.Row="0" FontSize="32" Grid.Column="0" Margin="0,0,0,10" />
-                            <TextBlock Text="Melvin Johan Grandiv" FontSize="32" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
+                            <TextBlock Text="Masukkan Nama" FontSize="32" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
 
                             <TextBlock Text="Nomor Telepon" Grid.Row="1" FontSize="32" Grid.Column="0" Margin="0,0,0,10"/>
-                            <TextBlock Text="081234567891" Grid.Row="1" FontSize="32" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
+                            <TextBlock Text="123456789" Grid.Row="1" FontSize="32" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
 
                             <TextBlock Text="Alamat Pengiriman" Grid.Row="2" FontSize="32" Grid.Column="0" Margin="0,0,0,10"/>
-                            <TextBlock Text="Grafika No. 1" Grid.Row="2" FontSize="32" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
+                            <TextBlock Text="Masukkan Alamat" Grid.Row="2" FontSize="32" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
                         </Grid>
                     </StackPanel>
                 </Border>

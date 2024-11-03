@@ -16,10 +16,36 @@ namespace Demeter
         private string passwordHash { get; set; }
         private string email { get; set; }
         public string role { get; set; }
+        public static string CurrentUsername { get; set; }
 
         public User()
         {
 
+        }
+
+        public Dictionary<string, string> GetPublicData(string username)
+        {
+            var publicData = new Dictionary<string, string>();
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT username, email FROM pengguna WHERE username = @username";
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("username", username);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            publicData["username"] = reader.GetString(0);
+                            publicData["email"] = reader.GetString(1);
+                        }
+                    }
+                }
+            }
+
+            return publicData;
         }
 
         public User(string username, string password, string email, string role)
@@ -55,14 +81,13 @@ namespace Demeter
                 }
             }
         }
-        public bool Login(string username, string password)
+        public string Login(string username, string password)
         {
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 conn.Open();
 
-                // Query the database to retrieve the stored hash for the given username
-                string query = "SELECT pass FROM pengguna WHERE username = @username";
+                string query = "SELECT pass, role FROM pengguna WHERE username = @username";
                 using (var cmd = new NpgsqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("username", username);
@@ -71,28 +96,20 @@ namespace Demeter
                     {
                         if (reader.Read())
                         {
-                            string storedPassword = reader.GetString(0);  // Get the stored password
+                            string storedPassword = reader.GetString(0);
+                            string role = reader.GetString(1);
 
-                            if (username == "admin")
+                            if ((username == "admin" && password == storedPassword) ||
+                                BCrypt.Net.BCrypt.Verify(password, storedPassword))
                             {
-                                // If the user is an admin, compare the password without hashing
-                                return password == storedPassword;
+                                User.CurrentUsername = username; // Set the current username
+                                return role; // Return the user's role
                             }
-                            else
-                            {
-                                // For regular users, use bcrypt to verify the password
-                                return BCrypt.Net.BCrypt.Verify(password, storedPassword);
-                            }
-                        }
-                        else
-                        {
-                            // Username not found
-                            return false;
                         }
                     }
                 }
             }
-
+            return null; // Return null if authentication fails
         }
     }
 }

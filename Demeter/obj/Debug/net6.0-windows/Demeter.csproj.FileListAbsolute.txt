@@ -132,8 +132,6 @@ E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Juni
 E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
 E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
 E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\System.Security.Cryptography.ProtectedData.dll
-E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerDashboard.g.cs
-E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerDashboard.baml
 C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Demeter.exe
 C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Demeter.dll.config
 C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Demeter.deps.json
@@ -177,3 +175,7 @@ C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-wind
 C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\Demeter.pdb
 C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\Demeter.genruntimeconfig.cache
 C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\ref\Demeter.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerDashboardWindow.g.cs
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerProfile.g.cs
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerDashboardWindow.baml
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerProfile.baml

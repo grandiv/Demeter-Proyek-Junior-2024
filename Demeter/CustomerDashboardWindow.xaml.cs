@@ -10,19 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Demeter
 {
     /// <summary>
-    /// Interaction logic for CustomerDashboard.xaml
+    /// Interaction logic for CustomerDashboardWindow.xaml
     /// </summary>
-    public partial class CustomerDashboard : Page
+    public partial class CustomerDashboardWindow : Window
     {
-        public CustomerDashboard()
+        public CustomerDashboardWindow()
         {
             InitializeComponent();
         }
+
+        private void ProfileButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            // Navigate to the CustomerProfile page in the MainContentFrame
+            CustomerFrame.Navigate(new CustomerProfile());
+        }
+
     }
 }

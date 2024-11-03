@@ -23,6 +23,21 @@ namespace Demeter
         public CustomerProfile()
         {
             InitializeComponent();
+            LoadUserData();
+        }
+
+        private void LoadUserData()
+        {
+            if (!string.IsNullOrEmpty(User.CurrentUsername))
+            {
+                User user = new User();
+                var publicData = user.GetPublicData(User.CurrentUsername);
+
+                // Assuming TextBlocks for Username and Email are named UsernameTextBlock and EmailTextBlock
+                UsernameTextBlock.Text = publicData.ContainsKey("username") ? publicData["username"] : "Unknown";
+                EmailTextBlock.Text = publicData.ContainsKey("email") ? publicData["email"] : "Unknown";
+                // Password remains as "**************"
+            }
         }
     }
 }
