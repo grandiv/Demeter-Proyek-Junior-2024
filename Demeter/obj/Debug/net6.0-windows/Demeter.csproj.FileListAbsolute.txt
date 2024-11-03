@@ -126,3 +126,11 @@ C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demete
 C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\Demeter.pdb
 C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\Demeter.genruntimeconfig.cache
 C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\ref\Demeter.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Demeter.dll.config
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\System.Security.Cryptography.ProtectedData.dll
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerDashboard.g.cs
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerDashboard.baml

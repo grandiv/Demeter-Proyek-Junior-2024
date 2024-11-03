@@ -54,9 +54,17 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Npgsql": {
               "target": "Package",
               "version": "[8.0.5, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             },
             "dotenv.net": {
               "target": "Package",
