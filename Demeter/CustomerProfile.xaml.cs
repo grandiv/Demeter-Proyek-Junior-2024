@@ -33,13 +33,14 @@ namespace Demeter
             if (!string.IsNullOrEmpty(User.CurrentUsername))
             {
                 currentCustomer = new Customer();
+                currentCustomer.LoadCustomerData(User.CurrentUsername);
                 var publicData = currentCustomer.GetPublicData(User.CurrentUsername);
 
                 UsernameTextBlock.Text = publicData.ContainsKey("username") ? publicData["username"] : "JohnDoe";
                 EmailTextBlock.Text = publicData.ContainsKey("email") ? publicData["email"] : "johndoe@gmail.com";
-                NamaTextBlock.Text = currentCustomer.nama ?? "Unknown";
-                TeleponTextBlock.Text = currentCustomer.noTelp.ToString();
-                AlamatTextBlock.Text = currentCustomer.alamatPengiriman ?? "Unknown";
+                NamaTextBlock.Text = !string.IsNullOrEmpty(currentCustomer.nama) ? currentCustomer.nama : "Unknown";
+                TeleponTextBlock.Text = currentCustomer.noTelp != 0 ? currentCustomer.noTelp.ToString() : "Unknown";
+                AlamatTextBlock.Text = !string.IsNullOrEmpty(currentCustomer.alamatPengiriman) ? currentCustomer.alamatPengiriman : "Unknown";
             }
         }
 

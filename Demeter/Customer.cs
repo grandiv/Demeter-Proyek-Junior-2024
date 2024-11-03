@@ -111,6 +111,53 @@ namespace Demeter
             }
         }
 
+        public void LoadCustomerData(string username)
+        {
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+                SELECT 
+                    c.nama,
+                    c.notelp,
+                    c.alamatpengiriman
+                FROM customer c 
+                INNER JOIN pengguna p ON c.custid = p.userid 
+                WHERE p.username = @username";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("username", username);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                this.nama = !reader.IsDBNull(0) ? reader.GetString(0) : "";
+                                // Parse notelp from string to int, with error handling
+                                string noTelpStr = !reader.IsDBNull(1) ? reader.GetString(1) : "0";
+                                if (int.TryParse(noTelpStr, out int noTelpValue))
+                                {
+                                    this.noTelp = noTelpValue;
+                                }
+                                else
+                                {
+                                    this.noTelp = 0;
+                                }
+                                this.alamatPengiriman = !reader.IsDBNull(2) ? reader.GetString(2) : "";
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error loading customer data: " + ex.Message);
+                    throw;
+                }
+            }
+        }
+
         private void UpdatePhotoProfile(string newPhotoUrl)
         {
             this.photoUrl = newPhotoUrl;
