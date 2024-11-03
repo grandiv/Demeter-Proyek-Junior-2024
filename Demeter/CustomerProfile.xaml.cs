@@ -20,6 +20,8 @@ namespace Demeter
     /// </summary>
     public partial class CustomerProfile : Page
     {
+        private Customer currentCustomer;
+
         public CustomerProfile()
         {
             InitializeComponent();
@@ -30,13 +32,68 @@ namespace Demeter
         {
             if (!string.IsNullOrEmpty(User.CurrentUsername))
             {
-                User user = new User();
-                var publicData = user.GetPublicData(User.CurrentUsername);
+                currentCustomer = new Customer();
+                var publicData = currentCustomer.GetPublicData(User.CurrentUsername);
 
-                // Assuming TextBlocks for Username and Email are named UsernameTextBlock and EmailTextBlock
-                UsernameTextBlock.Text = publicData.ContainsKey("username") ? publicData["username"] : "Unknown";
-                EmailTextBlock.Text = publicData.ContainsKey("email") ? publicData["email"] : "Unknown";
-                // Password remains as "**************"
+                UsernameTextBlock.Text = publicData.ContainsKey("username") ? publicData["username"] : "JohnDoe";
+                EmailTextBlock.Text = publicData.ContainsKey("email") ? publicData["email"] : "johndoe@gmail.com";
+                NamaTextBlock.Text = currentCustomer.nama ?? "Unknown";
+                TeleponTextBlock.Text = currentCustomer.noTelp.ToString();
+                AlamatTextBlock.Text = currentCustomer.alamatPengiriman ?? "Unknown";
+            }
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            NamaTextBlock.Visibility = Visibility.Collapsed;
+            TeleponTextBlock.Visibility = Visibility.Collapsed;
+            AlamatTextBlock.Visibility = Visibility.Collapsed;
+
+            NamaTextBox.Text = NamaTextBlock.Text;
+            TeleponTextBox.Text = TeleponTextBlock.Text;
+            AlamatTextBox.Text = AlamatTextBlock.Text;
+
+            NamaTextBox.Visibility = Visibility.Visible;
+            TeleponTextBox.Visibility = Visibility.Visible;
+            AlamatTextBox.Visibility = Visibility.Visible;
+
+            EditButton.Visibility = Visibility.Collapsed;
+            SaveButton.Visibility = Visibility.Visible;
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int noTelp = int.Parse(TeleponTextBox.Text);
+                currentCustomer.editProfile(
+                    NamaTextBox.Text,
+                    noTelp,
+                    AlamatTextBox.Text
+                );
+
+                // Update UI
+                NamaTextBlock.Text = NamaTextBox.Text;
+                TeleponTextBlock.Text = TeleponTextBox.Text;
+                AlamatTextBlock.Text = AlamatTextBox.Text;
+
+                // Reset visibility
+                NamaTextBlock.Visibility = Visibility.Visible;
+                TeleponTextBlock.Visibility = Visibility.Visible;
+                AlamatTextBlock.Visibility = Visibility.Visible;
+
+                NamaTextBox.Visibility = Visibility.Collapsed;
+                TeleponTextBox.Visibility = Visibility.Collapsed;
+                AlamatTextBox.Visibility = Visibility.Collapsed;
+
+                SaveButton.Visibility = Visibility.Collapsed;
+                EditButton.Visibility = Visibility.Visible;
+
+                MessageBox.Show("Profile updated successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating profile: " + ex.Message);
             }
         }
     }

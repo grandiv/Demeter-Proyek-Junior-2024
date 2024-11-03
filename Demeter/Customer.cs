@@ -52,12 +52,63 @@ namespace Demeter
             return historyList;
         }
 
-        public void editProfile(string newPhotoUrl, string newNama, int newNoTelp, string newAlamatPengiriman)
+        public void editProfile(string newNama, int newNoTelp, string newAlamatPengiriman)
         {
-            this.nama = newNama;
-            this.noTelp = newNoTelp;
-            this.alamatPengiriman = newAlamatPengiriman;
-            UpdatePhotoProfile(newPhotoUrl);
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // Get userid from pengguna table using CurrentUsername
+                        string getUserIdQuery = "SELECT userid FROM pengguna WHERE username = @username";
+                        int userId;
+
+                        using (var cmd = new NpgsqlCommand(getUserIdQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("username", User.CurrentUsername);
+                            var result = cmd.ExecuteScalar();
+                            if (result == null)
+                            {
+                                throw new Exception("User not found");
+                            }
+                            userId = (int)result;
+                        }
+
+                        // Try to update first, if no rows affected then insert
+                        string updateCustomerQuery = @"
+                    UPDATE customer 
+                    SET nama = @nama, notelp = @noTelp, alamatpengiriman = @alamat
+                    WHERE custid = @userId;
+                    
+                    INSERT INTO customer (custid, nama, notelp, alamatpengiriman)
+                    SELECT @userId, @nama, @noTelp, @alamat
+                    WHERE NOT EXISTS (SELECT 1 FROM customer WHERE custid = @userId);";
+
+                        using (var cmd = new NpgsqlCommand(updateCustomerQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("userId", userId);
+                            cmd.Parameters.AddWithValue("nama", newNama);
+                            cmd.Parameters.AddWithValue("noTelp", newNoTelp);
+                            cmd.Parameters.AddWithValue("alamat", newAlamatPengiriman);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+
+                        // Update local properties
+                        this.nama = newNama;
+                        this.noTelp = newNoTelp;
+                        this.alamatPengiriman = newAlamatPengiriman;
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception("Failed to update profile: " + ex.Message);
+                    }
+                }
+            }
         }
 
         private void UpdatePhotoProfile(string newPhotoUrl)

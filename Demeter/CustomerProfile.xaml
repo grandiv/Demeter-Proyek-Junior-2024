@@ -7,15 +7,11 @@
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1280"
       Title="CustomerProfile">
-
     <Grid>
-        <Rectangle Fill="White"></Rectangle>
-
+        <Rectangle Fill="White"/>
         <Grid ShowGridLines="False">
             <Grid.RowDefinitions>
-                <!-- Header Row -->
                 <RowDefinition Height="50" />
-                <!-- Content Row -->
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
@@ -41,17 +37,17 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                            <Image Source="/Images/CartLogo.png" Height="25"></Image>
+                            <Image Source="/Images/CartLogo.png" Height="25"/>
                             <TextBlock Text="Cart" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                            <Image Source="/Images/HistoryLogo.png" Height="25"></Image>
+                            <Image Source="/Images/HistoryLogo.png" Height="25"/>
                             <TextBlock Text="History" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
                         </StackPanel>
 
                         <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                            <Image Source="/Images/ProfileLogo.png" Height="25"></Image>
+                            <Image Source="/Images/ProfileLogo.png" Height="25"/>
                             <TextBlock Text="Profile" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
                         </StackPanel>
                     </Grid>
@@ -59,81 +55,117 @@
             </Border>
 
             <!-- Content Section -->
-            <Grid Grid.Row="1" Margin="20">
+            <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" MinWidth="300"/>
+                    <ColumnDefinition Width="2*" MinWidth="400"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Profile Picture and Name -->
-                <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,40,0,0">
+                <!-- Profile Picture Section -->
+                <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20,40,20,0">
                     <Ellipse Width="200" Height="200">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="/Images/DefaultProfile.png"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <TextBlock Text="Masukkan Nama" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                    <TextBlock x:Name="NamaDisplayTextBlock" FontSize="24" FontWeight="Bold" 
+                             HorizontalAlignment="Center" Margin="0,20,0,0"/>
                 </StackPanel>
 
-                <!-- Account and Personal Information -->
-                <Border Grid.Column="1" Background="#f2f2f2" CornerRadius="10" Padding="30" Margin="20,100,0,100">
-                    <StackPanel>
-                        <!-- Account Information -->
-                        <TextBlock Text="Informasi Akun" FontSize="32" FontWeight="Bold" Margin="0,0,0,20"/>
+                <!-- Account and Personal Information Section -->
+                <Border Grid.Column="1" Background="#f2f2f2" CornerRadius="10" 
+                        MinWidth="400" MaxWidth="800"
+                        Margin="20,40,20,40">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="30">
+                            <!-- Account Information -->
+                            <Grid Margin="0,0,0,30">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Informasi Akun" FontSize="32" FontWeight="Bold"/>
+                            </Grid>
 
-                        <Grid Margin="0,0,0,20">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="3*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
+                            <Grid Margin="0,0,0,30">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
 
-                            <TextBlock Text="Username" FontSize="32" Grid.Row="0" Grid.Column="0" Margin="0,0,0,10"/>
-                            <TextBlock x:Name="UsernameTextBlock" Text="Masukkan Username" FontSize="32" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
+                                <!-- Username -->
+                                <TextBlock Text="Username" FontSize="24" Grid.Row="0" Grid.Column="0" Margin="0,0,0,15"/>
+                                <TextBlock x:Name="UsernameTextBlock" Grid.Row="0" Grid.Column="1" 
+                                         FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Right"/>
 
-                            <TextBlock Text="Email" Grid.Row="1" FontSize="32" Grid.Column="0" Margin="0,0,0,10"/>
-                            <TextBlock  x:Name="EmailTextBlock" Text="Masukkan Email" FontSize="32" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
+                                <!-- Email -->
+                                <TextBlock Text="Email" FontSize="24" Grid.Row="1" Grid.Column="0" Margin="0,0,0,15"/>
+                                <TextBlock x:Name="EmailTextBlock" Grid.Row="1" Grid.Column="1" 
+                                         FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Right"/>
 
-                            <TextBlock Text="Password" Grid.Row="2" FontSize="32" Grid.Column="0" Margin="0,0,0,10"/>
-                            <TextBlock Text="**************" Grid.Row="2" FontSize="32" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
-                        </Grid>
+                                <!-- Password -->
+                                <TextBlock Text="Password" FontSize="24" Grid.Row="2" Grid.Column="0" Margin="0,0,0,15"/>
+                                <TextBlock Text="**************" Grid.Row="2" Grid.Column="1" 
+                                         FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Right"/>
+                            </Grid>
 
-                        <!-- Personal Information -->
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
+                            <!-- Personal Information -->
+                            <Grid Margin="0,0,0,20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Informasi Pribadi" FontSize="32" FontWeight="Bold"/>
+                                <Button x:Name="EditButton" Content="Edit" Grid.Column="1"
+                                        Click="EditButton_Click" FontSize="24" 
+                                        Padding="20,5" Background="#004b0c" 
+                                        Foreground="White" BorderThickness="0"/>
+                                <Button x:Name="SaveButton" Content="Save" Grid.Column="1"
+                                        Click="SaveButton_Click" FontSize="24" 
+                                        Padding="20,5" Background="#004b0c" 
+                                        Foreground="White" BorderThickness="0"
+                                        Visibility="Collapsed"/>
+                            </Grid>
 
-                            <TextBlock Text="Informasi Pribadi" FontSize="32" FontWeight="Bold" Margin="0,0,0,20"/>
-                            <TextBlock Text="Edit" Grid.Column="1" FontSize="32" Foreground="#004b0c" FontWeight="SemiBold" Cursor="Hand"/>
-                        </Grid>
+                            <Grid x:Name="PersonalInfoGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
 
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
+                                <!-- Nama -->
+                                <TextBlock Text="Nama" FontSize="24" Grid.Row="0" Grid.Column="0" Margin="0,0,0,15"/>
+                                <TextBlock x:Name="NamaTextBlock" Grid.Row="0" Grid.Column="1" 
+                                         FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Right"/>
+                                <TextBox x:Name="NamaTextBox" Grid.Row="0" Grid.Column="1" 
+                                       FontSize="24" Margin="0,0,0,15" Visibility="Collapsed"/>
 
-                            <TextBlock Text="Nama" Grid.Row="0" FontSize="32" Grid.Column="0" Margin="0,0,0,10" />
-                            <TextBlock Text="Masukkan Nama" FontSize="32" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
+                                <!-- Nomor Telepon -->
+                                <TextBlock Text="Nomor Telepon" FontSize="24" Grid.Row="1" Grid.Column="0" Margin="0,0,0,15"/>
+                                <TextBlock x:Name="TeleponTextBlock" Grid.Row="1" Grid.Column="1" 
+                                         FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Right"/>
+                                <TextBox x:Name="TeleponTextBox" Grid.Row="1" Grid.Column="1" 
+                                       FontSize="24" Margin="0,0,0,15" Visibility="Collapsed"/>
 
-                            <TextBlock Text="Nomor Telepon" Grid.Row="1" FontSize="32" Grid.Column="0" Margin="0,0,0,10"/>
-                            <TextBlock Text="123456789" Grid.Row="1" FontSize="32" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
-
-                            <TextBlock Text="Alamat Pengiriman" Grid.Row="2" FontSize="32" Grid.Column="0" Margin="0,0,0,10"/>
-                            <TextBlock Text="Masukkan Alamat" Grid.Row="2" FontSize="32" Grid.Column="1" Margin="0,0,0,10" HorizontalAlignment="Right"/>
-                        </Grid>
-                    </StackPanel>
+                                <!-- Alamat -->
+                                <TextBlock Text="Alamat Pengiriman" FontSize="24" Grid.Row="2" Grid.Column="0" Margin="0,0,0,15"/>
+                                <TextBlock x:Name="AlamatTextBlock" Grid.Row="2" Grid.Column="1" 
+                                         FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Right"/>
+                                <TextBox x:Name="AlamatTextBox" Grid.Row="2" Grid.Column="1" 
+                                       FontSize="24" Margin="0,0,0,15" Visibility="Collapsed"/>
+                            </Grid>
+                        </StackPanel>
+                    </ScrollViewer>
                 </Border>
             </Grid>
         </Grid>
