@@ -41,6 +41,7 @@ namespace Demeter
                 NamaTextBlock.Text = !string.IsNullOrEmpty(currentCustomer.nama) ? currentCustomer.nama : "Unknown";
                 TeleponTextBlock.Text = currentCustomer.noTelp != 0 ? currentCustomer.noTelp.ToString() : "Unknown";
                 AlamatTextBlock.Text = !string.IsNullOrEmpty(currentCustomer.alamatPengiriman) ? currentCustomer.alamatPengiriman : "Unknown";
+                NamaDisplayTextBlock.Text = NamaTextBlock.Text;
             }
         }
 
@@ -57,7 +58,10 @@ namespace Demeter
             NamaTextBox.Visibility = Visibility.Visible;
             TeleponTextBox.Visibility = Visibility.Visible;
             AlamatTextBox.Visibility = Visibility.Visible;
-
+            ImageLinkLabel.Visibility = Visibility.Visible;
+            ImageLinkTextBlock.Visibility = Visibility.Visible;
+            ImageLinkTextBox.Visibility = Visibility.Visible;
+            
             EditButton.Visibility = Visibility.Collapsed;
             SaveButton.Visibility = Visibility.Visible;
             CancelButton.Visibility = Visibility.Visible;
@@ -78,6 +82,7 @@ namespace Demeter
                 NamaTextBlock.Text = NamaTextBox.Text;
                 TeleponTextBlock.Text = TeleponTextBox.Text;
                 AlamatTextBlock.Text = AlamatTextBox.Text;
+                NamaDisplayTextBlock.Text = NamaTextBlock.Text;
 
                 // Reset visibility
                 NamaTextBlock.Visibility = Visibility.Visible;
@@ -87,6 +92,9 @@ namespace Demeter
                 NamaTextBox.Visibility = Visibility.Collapsed;
                 TeleponTextBox.Visibility = Visibility.Collapsed;
                 AlamatTextBox.Visibility = Visibility.Collapsed;
+                ImageLinkLabel.Visibility = Visibility.Collapsed;
+                ImageLinkTextBlock.Visibility = Visibility.Collapsed;
+                ImageLinkTextBox.Visibility = Visibility.Collapsed;
 
                 SaveButton.Visibility = Visibility.Collapsed;
                 EditButton.Visibility = Visibility.Visible;
@@ -109,6 +117,9 @@ namespace Demeter
             NamaTextBox.Visibility = Visibility.Collapsed;
             TeleponTextBox.Visibility = Visibility.Collapsed;
             AlamatTextBox.Visibility = Visibility.Collapsed;
+            ImageLinkLabel.Visibility = Visibility.Collapsed;
+            ImageLinkTextBlock.Visibility = Visibility.Collapsed;
+            ImageLinkTextBox.Visibility = Visibility.Collapsed;
 
             SaveButton.Visibility = Visibility.Collapsed;
             EditButton.Visibility = Visibility.Visible;

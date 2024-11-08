@@ -147,6 +147,7 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
                                 <!-- Nama -->
@@ -168,7 +169,14 @@
                                 <TextBlock x:Name="AlamatTextBlock" Grid.Row="2" Grid.Column="1" 
                                          FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Right"/>
                                 <TextBox x:Name="AlamatTextBox" Grid.Row="2" Grid.Column="1" 
-                                       FontSize="24" Margin="0,0,0,15" Visibility="Collapsed"/>
+                                         FontSize="24" Margin="0,0,0,15" Visibility="Collapsed"/>
+                                
+                                <!-- Image Link -->
+                                <TextBlock x:Name="ImageLinkLabel"  Text="Link Gambar" FontSize="24" Grid.Row="3" Grid.Column="0" Margin="0,0,0,15" Visibility="Collapsed"/>
+                                <TextBlock x:Name="ImageLinkTextBlock" Grid.Row="3" Grid.Column="1" 
+                                         FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Right" Visibility="Collapsed"/>
+                                <TextBox x:Name="ImageLinkTextBox" Grid.Row="3" Grid.Column="1" 
+                                         FontSize="24" Margin="0,0,0,15" Visibility="Collapsed"/>
                             </Grid>
                         </StackPanel>
                     </ScrollViewer>
