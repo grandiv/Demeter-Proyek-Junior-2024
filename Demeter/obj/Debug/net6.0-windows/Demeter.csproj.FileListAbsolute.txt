@@ -191,3 +191,7 @@ C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demete
 C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerProfile.g.cs
 C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerDashboardWindow.baml
 C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerProfile.baml
+C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\SellerDashboardWindow.g.cs
+C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\SellerProfile.g.cs
+C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\SellerDashboardWindow.baml
+C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\SellerProfile.baml

@@ -1,11 +1,11 @@
-﻿<Window x:Class="Demeter.CustomerDashboardWindow"
+﻿<Window x:Class="Demeter.SellerDashboardWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demeter"
         mc:Ignorable="d"
-        Title="Customer Dashboard" Height="800" Width="1280">
+        Title="Seller Dashboard" Height="800" Width="1280">
     <Grid>
         <Rectangle Fill="White"></Rectangle>
 
@@ -30,7 +30,7 @@
                     <Image x:Name="HomeLogo" Source="/Images/Logo Demeter (Text).png" Height="40" Margin="20,0,0,0"/>
                 </StackPanel>
 
-                <TextBlock Text="Customer Landing Page" Grid.Column="0" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="200,0,0,0" FontWeight="Bold" />
+                <TextBlock Text="Seller Landing Page" Grid.Column="0" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="200,0,0,0" FontWeight="Bold" />
                 <Grid Grid.Column="1" ShowGridLines="False">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -38,14 +38,9 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                        <Image Source="/Images/CartLogo.png" Height="25"/>
-                        <TextBlock Text="Cart" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
-                    </StackPanel>
-
                     <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                        <Image Source="/Images/HistoryLogo.png" Height="25"/>
-                        <TextBlock Text="History" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
+                        <Image Source="/Images/OrderLogo.png" Height="25" Width="25" Visibility="Visible"></Image>
+                        <TextBlock Text="Order" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="2"  VerticalAlignment="Center" MouseLeftButtonDown="ProfileButton_Click" Cursor="Hand">
@@ -56,6 +51,6 @@
             </Grid>
         </Grid>
         <!-- Frame to display pages -->
-        <Frame x:Name="CustomerFrame"  Grid.Row="1" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="SellerFrame"  Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

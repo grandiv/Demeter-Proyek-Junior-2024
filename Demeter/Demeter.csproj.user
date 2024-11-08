@@ -13,6 +13,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="SellerProfile.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SellerDashboardWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="CustomerDashboardWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

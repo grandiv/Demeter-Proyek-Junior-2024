@@ -53,9 +53,14 @@ namespace Demeter
                     CustomerDashboardWindow dashboard = new CustomerDashboardWindow();
                     dashboard.Show();
                 }
+                else if (role == "Seller")
+                {
+                    SellerDashboardWindow dashboard = new SellerDashboardWindow();
+                    dashboard.Show();
+                }
                 else
                 {
-                    MessageBox.Show("Access denied. You do not have permission to access the customer dashboard.");
+                    MessageBox.Show("Access denied. You do not have permission to access the customer or seller dashboard.");
                 }
 
                 // Close the Login window
