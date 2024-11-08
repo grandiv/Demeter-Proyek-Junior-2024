@@ -45,6 +45,13 @@ namespace Demeter
             }
         }
 
+        private void HomeLogo_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            CustomerDashboardWindow dashboard = new CustomerDashboardWindow();
+            dashboard.Show();
+            Window.GetWindow(this).Close();
+        }
+
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             NamaTextBlock.Visibility = Visibility.Collapsed;

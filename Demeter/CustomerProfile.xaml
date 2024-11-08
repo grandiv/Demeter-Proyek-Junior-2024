@@ -24,8 +24,8 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- Logo and Title -->
-                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-                        <Image Source="/Images/Logo Demeter (Text).png" Height="40" Margin="20,0,0,0"/>
+                    <StackPanel  Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image x:Name="HomeLogo" Source="/Images/Logo Demeter (Text).png" Height="40" Margin="20,0,0,0" MouseLeftButtonDown="HomeLogo_MouseLeftButtonDown" Cursor="Hand"/>
                     </StackPanel>
 
                     <!-- Icons for Cart, History, Profile -->

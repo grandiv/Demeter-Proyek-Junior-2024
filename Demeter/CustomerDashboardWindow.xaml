@@ -21,11 +21,16 @@
 
             <Grid Grid.Row="0" ShowGridLines="False">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*" />
                     <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="150" />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Customer Landing Page" Grid.Column="0" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="140,0,0,0" FontWeight="Bold"/>
+                <!-- Logo and Title -->
+                <StackPanel  Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image x:Name="HomeLogo" Source="/Images/Logo Demeter (Text).png" Height="40" Margin="20,0,0,0"/>
+                </StackPanel>
+
+                <TextBlock Text="Customer Landing Page" Grid.Column="0" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="200,0,0,0" FontWeight="Bold" />
                 <Grid Grid.Column="1" ShowGridLines="False">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -34,18 +39,18 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                        <Image Source="/Images/CartLogo.png" Height="30" Visibility="Visible"></Image>
-                        <TextBlock Text="Cart" HorizontalAlignment="Center" FontSize="9" Foreground="#004b0c" Margin="0,0,0,0"/>
+                        <Image Source="/Images/CartLogo.png" Height="25"/>
+                        <TextBlock Text="Cart" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Column="1"  VerticalAlignment="Center">
-                        <Image Source="/Images/HistoryLogo.png" Height="30"  Visibility="Visible"></Image>
-                        <TextBlock Text="History" HorizontalAlignment="Center" FontSize="9" Foreground="#004b0c"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <Image Source="/Images/HistoryLogo.png" Height="25"/>
+                        <TextBlock Text="History" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="2"  VerticalAlignment="Center" MouseLeftButtonDown="ProfileButton_Click" Cursor="Hand">
-                        <Image Source="/Images/ProfileLogo.png" Height="30" Visibility="Visible"></Image>
-                        <TextBlock Text="Profile"  FontSize="9" HorizontalAlignment="Center" Foreground="#004b0c"/>
+                        <Image Source="/Images/ProfileLogo.png" Height="25" Visibility="Visible"></Image>
+                        <TextBlock Text="Profile"  FontSize="12" HorizontalAlignment="Center" Foreground="#004b0c"/>
                     </StackPanel>
                 </Grid>
             </Grid>
