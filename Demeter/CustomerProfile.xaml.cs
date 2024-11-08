@@ -42,6 +42,22 @@ namespace Demeter
                 TeleponTextBlock.Text = currentCustomer.noTelp != 0 ? currentCustomer.noTelp.ToString() : "Unknown";
                 AlamatTextBlock.Text = !string.IsNullOrEmpty(currentCustomer.alamatPengiriman) ? currentCustomer.alamatPengiriman : "Unknown";
                 NamaDisplayTextBlock.Text = NamaTextBlock.Text;
+
+                // Load profile picture if URL exists
+                if (!string.IsNullOrEmpty(currentCustomer.photoUrl))
+                {
+                    try
+                    {
+                        var imageBrush = new ImageBrush();
+                        var bitmapImage = new BitmapImage(new Uri(currentCustomer.photoUrl));
+                        imageBrush.ImageSource = bitmapImage;
+                        ProfilePictureEllipse.Fill = imageBrush;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error loading profile picture: {ex.Message}");
+                    }
+                }
             }
         }
 
@@ -82,10 +98,20 @@ namespace Demeter
                 currentCustomer.editProfile(
                     NamaTextBox.Text,
                     noTelp,
-                    AlamatTextBox.Text
+                    AlamatTextBox.Text,
+                    ImageLinkTextBox.Text // Add photo URL
                 );
 
-                // Update UI
+                // Update UI including profile picture
+                if (!string.IsNullOrEmpty(ImageLinkTextBox.Text))
+                {
+                    var imageBrush = new ImageBrush();
+                    var bitmapImage = new BitmapImage(new Uri(ImageLinkTextBox.Text));
+                    imageBrush.ImageSource = bitmapImage;
+                    ProfilePictureEllipse.Fill = imageBrush; // Assuming your Ellipse is named ProfilePictureEllipse
+                }
+
+                // Rest of your existing update code
                 NamaTextBlock.Text = NamaTextBox.Text;
                 TeleponTextBlock.Text = TeleponTextBox.Text;
                 AlamatTextBlock.Text = AlamatTextBox.Text;
@@ -95,14 +121,12 @@ namespace Demeter
                 NamaTextBlock.Visibility = Visibility.Visible;
                 TeleponTextBlock.Visibility = Visibility.Visible;
                 AlamatTextBlock.Visibility = Visibility.Visible;
-
                 NamaTextBox.Visibility = Visibility.Collapsed;
                 TeleponTextBox.Visibility = Visibility.Collapsed;
                 AlamatTextBox.Visibility = Visibility.Collapsed;
                 ImageLinkLabel.Visibility = Visibility.Collapsed;
                 ImageLinkTextBlock.Visibility = Visibility.Collapsed;
                 ImageLinkTextBox.Visibility = Visibility.Collapsed;
-
                 SaveButton.Visibility = Visibility.Collapsed;
                 EditButton.Visibility = Visibility.Visible;
                 CancelButton.Visibility = Visibility.Collapsed;

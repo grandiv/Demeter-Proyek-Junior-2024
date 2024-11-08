@@ -14,7 +14,7 @@ namespace Demeter
         public string nama { get; set; }
         public int noTelp { get; set; }
         public string alamatPengiriman { get; set; }
-        protected string photoUrl { get; set; }
+        public string photoUrl { get; set; }
 
         public void addToCart(Produk produk)
         {
@@ -52,7 +52,7 @@ namespace Demeter
             return historyList;
         }
 
-        public void editProfile(string newNama, int newNoTelp, string newAlamatPengiriman)
+        public void editProfile(string newNama, int newNoTelp, string newAlamatPengiriman, string newPhotoUrl)
         {
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
             {
@@ -61,10 +61,8 @@ namespace Demeter
                 {
                     try
                     {
-                        // Get userid from pengguna table using CurrentUsername
                         string getUserIdQuery = "SELECT userid FROM pengguna WHERE username = @username";
                         int userId;
-
                         using (var cmd = new NpgsqlCommand(getUserIdQuery, conn, transaction))
                         {
                             cmd.Parameters.AddWithValue("username", User.CurrentUsername);
@@ -76,14 +74,16 @@ namespace Demeter
                             userId = (int)result;
                         }
 
-                        // Try to update first, if no rows affected then insert
                         string updateCustomerQuery = @"
                     UPDATE customer 
-                    SET nama = @nama, notelp = @noTelp, alamatpengiriman = @alamat
+                    SET nama = @nama, 
+                        notelp = @noTelp, 
+                        alamatpengiriman = @alamat, 
+                        photourl = @photoUrl
                     WHERE custid = @userId;
                     
-                    INSERT INTO customer (custid, nama, notelp, alamatpengiriman)
-                    SELECT @userId, @nama, @noTelp, @alamat
+                    INSERT INTO customer (custid, nama, notelp, alamatpengiriman, photourl)
+                    SELECT @userId, @nama, @noTelp, @alamat, @photoUrl
                     WHERE NOT EXISTS (SELECT 1 FROM customer WHERE custid = @userId);";
 
                         using (var cmd = new NpgsqlCommand(updateCustomerQuery, conn, transaction))
@@ -92,6 +92,7 @@ namespace Demeter
                             cmd.Parameters.AddWithValue("nama", newNama);
                             cmd.Parameters.AddWithValue("noTelp", newNoTelp);
                             cmd.Parameters.AddWithValue("alamat", newAlamatPengiriman);
+                            cmd.Parameters.AddWithValue("photoUrl", !string.IsNullOrEmpty(newPhotoUrl) ? newPhotoUrl : (object)DBNull.Value);
                             cmd.ExecuteNonQuery();
                         }
 
@@ -101,6 +102,7 @@ namespace Demeter
                         this.nama = newNama;
                         this.noTelp = newNoTelp;
                         this.alamatPengiriman = newAlamatPengiriman;
+                        this.photoUrl = newPhotoUrl;
                     }
                     catch (Exception ex)
                     {
@@ -122,7 +124,8 @@ namespace Demeter
                 SELECT 
                     c.nama,
                     c.notelp,
-                    c.alamatpengiriman
+                    c.alamatpengiriman,
+                    c.photourl
                 FROM customer c 
                 INNER JOIN pengguna p ON c.custid = p.userid 
                 WHERE p.username = @username";
@@ -135,7 +138,6 @@ namespace Demeter
                             if (reader.Read())
                             {
                                 this.nama = !reader.IsDBNull(0) ? reader.GetString(0) : "";
-                                // Parse notelp from string to int, with error handling
                                 string noTelpStr = !reader.IsDBNull(1) ? reader.GetString(1) : "0";
                                 if (int.TryParse(noTelpStr, out int noTelpValue))
                                 {
@@ -146,6 +148,13 @@ namespace Demeter
                                     this.noTelp = 0;
                                 }
                                 this.alamatPengiriman = !reader.IsDBNull(2) ? reader.GetString(2) : "";
+                                this.photoUrl = !reader.IsDBNull(3) ? reader.GetString(3) : "";
+
+                                // Load profile picture if URL exists
+                                if (!string.IsNullOrEmpty(this.photoUrl))
+                                {
+                                    Console.WriteLine($"Found photo URL: {this.photoUrl}");
+                                }
                             }
                         }
                     }
