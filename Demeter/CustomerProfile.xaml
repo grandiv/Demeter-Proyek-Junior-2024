@@ -62,7 +62,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Profile Picture Section -->
-                <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20,40,20,0">
+                <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20,200,20,0">
                     <Ellipse x:Name="ProfilePictureEllipse" Width="200" Height="200">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="/Images/DefaultProfile.png"/>
