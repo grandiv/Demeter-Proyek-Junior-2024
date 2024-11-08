@@ -16,13 +16,13 @@ using System.Windows.Shapes;
 namespace Demeter
 {
     /// <summary>
-    /// Interaction logic for CustomerProfile.xaml
+    /// Interaction logic for SellerProfile.xaml
     /// </summary>
-    public partial class CustomerProfile : Page
+    public partial class SellerProfile : Page
     {
-        private Customer currentCustomer;
+        private Seller currentSeller;
 
-        public CustomerProfile()
+        public SellerProfile()
         {
             InitializeComponent();
             LoadUserData();
@@ -32,24 +32,24 @@ namespace Demeter
         {
             if (!string.IsNullOrEmpty(User.CurrentUsername))
             {
-                currentCustomer = new Customer();
-                currentCustomer.LoadCustomerData(User.CurrentUsername);
-                var publicData = currentCustomer.GetPublicData(User.CurrentUsername);
+                currentSeller = new Seller();
+                currentSeller.LoadSellerData(User.CurrentUsername);
+                var publicData = currentSeller.GetPublicData(User.CurrentUsername);
 
                 UsernameTextBlock.Text = publicData.ContainsKey("username") ? publicData["username"] : "JohnDoe";
                 EmailTextBlock.Text = publicData.ContainsKey("email") ? publicData["email"] : "johndoe@gmail.com";
-                NamaTextBlock.Text = !string.IsNullOrEmpty(currentCustomer.nama) ? currentCustomer.nama : "Unknown";
-                TeleponTextBlock.Text = currentCustomer.noTelp != 0 ? currentCustomer.noTelp.ToString() : "Unknown";
-                AlamatTextBlock.Text = !string.IsNullOrEmpty(currentCustomer.alamatPengiriman) ? currentCustomer.alamatPengiriman : "Unknown";
+                NamaTextBlock.Text = !string.IsNullOrEmpty(currentSeller.namaToko) ? currentSeller.namaToko : "Unknown";
+                TeleponTextBlock.Text = currentSeller.noTelp != 0 ? currentSeller.noTelp.ToString() : "Unknown";
+                AlamatTextBlock.Text = !string.IsNullOrEmpty(currentSeller.alamat) ? currentSeller.alamat : "Unknown";
                 NamaDisplayTextBlock.Text = NamaTextBlock.Text;
 
                 // Load profile picture if URL exists
-                if (!string.IsNullOrEmpty(currentCustomer.photoUrl))
+                if (!string.IsNullOrEmpty(currentSeller.photoUrl))
                 {
                     try
                     {
                         var imageBrush = new ImageBrush();
-                        var bitmapImage = new BitmapImage(new Uri(currentCustomer.photoUrl));
+                        var bitmapImage = new BitmapImage(new Uri(currentSeller.photoUrl));
                         imageBrush.ImageSource = bitmapImage;
                         ProfilePictureEllipse.Fill = imageBrush;
                     }
@@ -63,7 +63,7 @@ namespace Demeter
 
         private void HomeLogo_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            CustomerDashboardWindow dashboard = new CustomerDashboardWindow();
+            SellerDashboardWindow dashboard = new SellerDashboardWindow();
             dashboard.Show();
             Window.GetWindow(this).Close();
         }
@@ -95,7 +95,7 @@ namespace Demeter
             try
             {
                 int noTelp = int.Parse(TeleponTextBox.Text);
-                currentCustomer.editProfile(
+                currentSeller.editProfile(
                     NamaTextBox.Text,
                     noTelp,
                     AlamatTextBox.Text,

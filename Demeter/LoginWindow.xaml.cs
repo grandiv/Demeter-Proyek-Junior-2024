@@ -37,18 +37,34 @@ namespace Demeter
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            // Capture username and password from UI fields
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;
 
-            // Create a new User instance and call the Login method
             User user = new User();
-            bool isAuthenticated = user.Login(username, password);
+            string role = user.Login(username, password);
 
-            if (isAuthenticated)
+            if (role != null)
             {
                 MessageBox.Show("Login successful!");
-                // Navigate to the main dashboard or another window
+
+                if (role == "Customer")
+                {
+                    // Redirect to Customer Dashboard
+                    CustomerDashboardWindow dashboard = new CustomerDashboardWindow();
+                    dashboard.Show();
+                }
+                else if (role == "Seller")
+                {
+                    SellerDashboardWindow dashboard = new SellerDashboardWindow();
+                    dashboard.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Access denied. You do not have permission to access the customer or seller dashboard.");
+                }
+
+                // Close the Login window
+                this.Close();
             }
             else
             {

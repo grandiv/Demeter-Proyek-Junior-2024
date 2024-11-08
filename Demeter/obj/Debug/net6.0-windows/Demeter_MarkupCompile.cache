@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\App.xaml
-3-136036209
+6167410670
 
-13-727847400
+16-980064052
 2021100680569
-CustomerDashboard.xaml;LoginWindow.xaml;RegisterWindow.xaml;
+CustomerDashboardWindow.xaml;CustomerProfile.xaml;LoginWindow.xaml;RegisterWindow.xaml;SellerDashboardWindow.xaml;SellerProfile.xaml;
 
 False
 

@@ -9,8 +9,14 @@
 
   <ItemGroup>
     <None Remove=".env" />
+    <None Remove="Images\CartLogo.png" />
+    <None Remove="Images\DefaultProfile.png" />
     <None Remove="Images\DemeterLogo.png" />
+    <None Remove="Images\HistoryLogo.png" />
     <None Remove="Images\Login.png" />
+    <None Remove="Images\Logo Demeter %28Text%29.png" />
+    <None Remove="Images\OrderLogo.png" />
+    <None Remove="Images\ProfileLogo.png" />
     <None Remove="Images\Register.png" />
   </ItemGroup>
 
@@ -23,9 +29,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\CartLogo.png" />
+    <Resource Include="Images\DefaultProfile.png" />
     <Resource Include="Images\DemeterLogo.png" />
+    <Resource Include="Images\HistoryLogo.png" />
     <Resource Include="Images\Login.png" />
+    <Resource Include="Images\Logo Demeter (Text).png" />
+    <Resource Include="Images\OrderLogo.png" />
+    <Resource Include="Images\ProfileLogo.png" />
     <Resource Include="Images\Register.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="SellerProfile.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SellerDashboardWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>
