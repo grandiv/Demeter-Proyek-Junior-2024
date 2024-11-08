@@ -14,7 +14,7 @@ namespace Demeter
         public string nama { get; set; }
         public int noTelp { get; set; }
         public string alamatPengiriman { get; set; }
-        public string photoUrl { get; set; }
+        protected string photoUrl { get; set; }
 
         public void addToCart(Produk produk)
         {

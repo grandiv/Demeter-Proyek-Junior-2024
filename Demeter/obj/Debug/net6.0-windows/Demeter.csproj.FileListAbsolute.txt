@@ -181,3 +181,13 @@ C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-wind
 C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerProfile.g.cs
 C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerDashboardWindow.baml
 C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerProfile.baml
+C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Demeter.dll.config
+C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
+C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\bin\Debug\net6.0-windows\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerDashboardWindow.g.cs
+C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerProfile.g.cs
+C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerDashboardWindow.baml
+C:\Users\Melvin\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\CustomerProfile.baml

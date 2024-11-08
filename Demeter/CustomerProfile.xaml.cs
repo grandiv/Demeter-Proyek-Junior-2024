@@ -60,6 +60,7 @@ namespace Demeter
 
             EditButton.Visibility = Visibility.Collapsed;
             SaveButton.Visibility = Visibility.Visible;
+            CancelButton.Visibility = Visibility.Visible;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -89,6 +90,7 @@ namespace Demeter
 
                 SaveButton.Visibility = Visibility.Collapsed;
                 EditButton.Visibility = Visibility.Visible;
+                CancelButton.Visibility = Visibility.Collapsed;
 
                 MessageBox.Show("Profile updated successfully!");
             }
@@ -96,6 +98,22 @@ namespace Demeter
             {
                 MessageBox.Show("Error updating profile: " + ex.Message);
             }
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            NamaTextBlock.Visibility = Visibility.Visible;
+            TeleponTextBlock.Visibility = Visibility.Visible;
+            AlamatTextBlock.Visibility = Visibility.Visible;
+
+            NamaTextBox.Visibility = Visibility.Collapsed;
+            TeleponTextBox.Visibility = Visibility.Collapsed;
+            AlamatTextBox.Visibility = Visibility.Collapsed;
+
+            SaveButton.Visibility = Visibility.Collapsed;
+            EditButton.Visibility = Visibility.Visible;
+            CancelButton.Visibility = Visibility.Collapsed;
+
         }
     }
 }
