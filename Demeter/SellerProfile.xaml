@@ -120,17 +120,17 @@
                                 <Button x:Name="EditButton" Content="Edit" Grid.Column="1"
                                         Click="EditButton_Click" FontSize="24" 
                                         Padding="20,5" Background="#004b0c" 
-                                        Foreground="White" BorderThickness="0"/>
+                                        Foreground="White" BorderThickness="0" Cursor="Hand"/>
                                 <Button x:Name="CancelButton" Content="Cancel" Grid.Column="1"
                                         Click="CancelButton_Click" FontSize="24" 
                                         Padding="20,5" Background="#ff3636" 
                                         Foreground="White" BorderThickness="0"
-                                        Visibility="Collapsed"/>
+                                        Visibility="Collapsed" Cursor="Hand"/>
                                 <Button x:Name="SaveButton" Content="Save" Grid.Column="2"
                                         Click="SaveButton_Click" FontSize="24" 
                                         Padding="20,5" Background="#004b0c" 
                                         Foreground="White" BorderThickness="0"
-                                        Visibility="Collapsed"/>
+                                        Visibility="Collapsed" Cursor="Hand"/>
                             </Grid>
 
                             <Grid x:Name="PersonalInfoGrid">
