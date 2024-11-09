@@ -140,14 +140,69 @@ namespace Demeter
 
         public void deleteProduk(int produkId)
         {
-            // TODO
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        string deleteProdukQuery = "DELETE FROM produk WHERE produkid = @produkId";
+                        using (var cmd = new NpgsqlCommand(deleteProdukQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("produkId", produkId);
+                            cmd.ExecuteNonQuery();
+                        }
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception("Failed to delete product: " + ex.Message);
+                    }
+                }
+            }
         }
+
         public void updateProduk(Produk produk)
         {
-
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        string updateProdukQuery = @"
+                        UPDATE produk 
+                        SET nama = @nama, 
+                            deskripsi = @deskripsi, 
+                            harga = @harga, 
+                            photourl = @photoUrl, 
+                            stok = @stok 
+                        WHERE produkid = @produkId";
+                        using (var cmd = new NpgsqlCommand(updateProdukQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("nama", produk.namaProduk);
+                            cmd.Parameters.AddWithValue("deskripsi", produk.deskripsiProduk);
+                            cmd.Parameters.AddWithValue("harga", produk.hargaProduk);
+                            cmd.Parameters.AddWithValue("photoUrl", !string.IsNullOrEmpty(produk.photoUrl) ? produk.photoUrl : (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("stok", produk.stok);
+                            cmd.Parameters.AddWithValue("produkId", produk.produkID);
+                            cmd.ExecuteNonQuery();
+                        }
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception("Failed to update product: " + ex.Message);
+                    }
+                }
+            }
         }
 
-        public void editProfile(string newNamaToko, int newNoTelp, string newAlamat, string newPhotoUrl)
+            public void editProfile(string newNamaToko, int newNoTelp, string newAlamat, string newPhotoUrl)
         {
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
             {

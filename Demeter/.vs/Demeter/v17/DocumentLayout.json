@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\sellerdashboardwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:sellerdashboardwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\sellerdashboardwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:sellerdashboardwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\sellerprofile.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:sellerprofile.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\produk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:produk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\customerprofile.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:customerprofile.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,24 +31,8 @@
       "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:customerprofile.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\sellerprofile.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:sellerprofile.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\sellerprofile.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:sellerprofile.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\sellerdashboardwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:sellerdashboardwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\sellerdashboardwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:sellerdashboardwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\images\\defaultprofile.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
@@ -37,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\produk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:produk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -114,7 +114,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -138,19 +138,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SellerProfile.xaml",
-              "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\SellerProfile.xaml",
-              "RelativeDocumentMoniker": "SellerProfile.xaml",
-              "ToolTip": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\SellerProfile.xaml",
-              "RelativeToolTip": "SellerProfile.xaml",
+              "DocumentIndex": 1,
+              "Title": "SellerDashboardWindow.xaml",
+              "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\SellerDashboardWindow.xaml",
+              "RelativeDocumentMoniker": "SellerDashboardWindow.xaml",
+              "ToolTip": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\SellerDashboardWindow.xaml",
+              "RelativeToolTip": "SellerDashboardWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-08T17:31:26.153Z",
+              "WhenOpened": "2024-11-09T16:16:51.848Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "SellerProfile.xaml.cs",
               "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\SellerProfile.xaml.cs",
               "RelativeDocumentMoniker": "SellerProfile.xaml.cs",
@@ -163,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "CustomerProfile.xaml",
               "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\CustomerProfile.xaml",
               "RelativeDocumentMoniker": "CustomerProfile.xaml",
@@ -175,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "CustomerProfile.xaml.cs",
               "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\CustomerProfile.xaml.cs",
               "RelativeDocumentMoniker": "CustomerProfile.xaml.cs",
@@ -188,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DefaultProfile.png",
               "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\Images\\defaultprofile.png",
               "RelativeDocumentMoniker": "Images\\defaultprofile.png",
@@ -200,45 +200,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Seller.cs",
               "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\Seller.cs",
               "RelativeDocumentMoniker": "Seller.cs",
               "ToolTip": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\Seller.cs",
               "RelativeToolTip": "Seller.cs",
-              "ViewState": "AQIAAPEAAAAAAAAAAAAAwAYBAAAAAAAA",
+              "ViewState": "AQIAAJsAAAAAAAAAAAAowMoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T17:17:57.853Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SellerDashboardWindow.xaml",
-              "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\SellerDashboardWindow.xaml",
-              "RelativeDocumentMoniker": "SellerDashboardWindow.xaml",
-              "ToolTip": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\SellerDashboardWindow.xaml",
-              "RelativeToolTip": "SellerDashboardWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-08T17:32:57.542Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "SellerDashboardWindow.xaml.cs",
               "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\SellerDashboardWindow.xaml.cs",
               "RelativeDocumentMoniker": "SellerDashboardWindow.xaml.cs",
               "ToolTip": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\SellerDashboardWindow.xaml.cs",
               "RelativeToolTip": "SellerDashboardWindow.xaml.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAiwBMAAAAyAAAA",
+              "ViewState": "AQIAAMcAAAAAAAAAAAAYwPMAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T17:30:30.266Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
+              "Title": "SellerProfile.xaml",
+              "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\SellerProfile.xaml",
+              "RelativeDocumentMoniker": "SellerProfile.xaml",
+              "ToolTip": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\SellerProfile.xaml",
+              "RelativeToolTip": "SellerProfile.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-08T17:31:26.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Produk.cs",
               "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\Produk.cs",
               "RelativeDocumentMoniker": "Produk.cs",
@@ -251,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "LoginWindow.xaml.cs",
               "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\LoginWindow.xaml.cs",
               "RelativeDocumentMoniker": "LoginWindow.xaml.cs",
