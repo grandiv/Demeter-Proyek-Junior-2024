@@ -135,7 +135,8 @@ namespace Demeter
                 StackPanel productPanel = new StackPanel
                 {
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
+                    VerticalAlignment = VerticalAlignment.Center,
+                    Cursor = Cursors.Hand
                 };
                 Image productImage = new Image
                 {

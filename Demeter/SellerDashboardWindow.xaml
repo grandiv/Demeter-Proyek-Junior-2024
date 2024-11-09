@@ -141,8 +141,8 @@
                                 <TextBlock Text="Jumlah Stok Total" Margin="0,5,0,0" FontWeight="Bold"/>
                                 <TextBox x:Name="PreviewProductStockTextBox" Margin="0,0,0,10" IsReadOnly="True" Background="#F0F0F0" BorderThickness="0"/>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Button Content="Edit" FontSize="12" Padding="20, 5" Margin="10" Background="#004b0c" Foreground="White" BorderThickness="0" Click="ShowEditProductModal"/>
-                                    <Button Content="Delete" FontSize="12" Padding="20, 5" Margin="10" Background="#ff3636" BorderThickness="0" Click="DeleteProduct"/>
+                                    <Button Content="Edit" FontSize="12" Padding="20, 5" Margin="10" Background="#004b0c" Foreground="White" BorderThickness="0" Click="ShowEditProductModal" Cursor="Hand"/>
+                                    <Button Content="Delete" FontSize="12" Padding="20, 5" Margin="10" Background="#ff3636" BorderThickness="0" Click="DeleteProduct" Cursor="Hand"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
@@ -182,9 +182,9 @@
                                 <TextBlock Text="Jumlah Stok Total" Margin="0,5,0,0" FontWeight="Bold"/>
                                 <TextBox x:Name="EditProductStockTextBox" Margin="0,0,0,10"/>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Button Content="Cancel" FontSize="12" Padding="20, 5" Margin="10" BorderThickness="0" Click="CancelEditProduct"/>
-                                    <Button Content="Delete" FontSize="12" Padding="20, 5" Margin="10" Background="#ff3636" BorderThickness="0" Click="DeleteProduct"/>
-                                    <Button Content="Save" FontSize="12" Padding="20, 5" Margin="10" Background="#004b0c" Foreground="White" BorderThickness="0" Click="SaveProduct"/>
+                                    <Button Content="Cancel" FontSize="12" Padding="20, 5" Margin="10" BorderThickness="0" Click="CancelEditProduct" Cursor="Hand"/>
+                                    <Button Content="Delete" FontSize="12" Padding="20, 5" Margin="10" Background="#ff3636" BorderThickness="0" Click="DeleteProduct" Cursor="Hand"/>
+                                    <Button Content="Save" FontSize="12" Padding="20, 5" Margin="10" Background="#004b0c" Foreground="White" BorderThickness="0" Click="SaveProduct" Cursor="Hand"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
