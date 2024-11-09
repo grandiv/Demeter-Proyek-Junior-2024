@@ -77,7 +77,7 @@
                     </ComboBox>
 
                     <!-- Sign Up Button -->
-                    <Button Content="SIGN UP" Width="250" Height="45" Style="{StaticResource btnRegister}" HorizontalAlignment="Center" Margin="0,40,0,0" Click="SignUpButton_Click"/>
+                    <Button Content="SIGN UP" Width="250" Height="45" Style="{StaticResource btnRegister}" HorizontalAlignment="Center" Margin="0,40,0,0" Click="SignUpButton_Click" Cursor="Hand"/>
 
                 </StackPanel>
             </Grid>

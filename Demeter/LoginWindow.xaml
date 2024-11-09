@@ -61,7 +61,7 @@
                     </Border>
 
                     <!-- Login Button -->
-                    <Button Content="LOG IN" Width="250" Height="45" Style="{StaticResource btnLogin}" HorizontalAlignment="Center" Margin="0,40,0,0" Click="LoginButton_Click"/>
+                    <Button Content="LOG IN" Width="250" Height="45" Style="{StaticResource btnLogin}" HorizontalAlignment="Center" Margin="0,40,0,0" Click="LoginButton_Click" Cursor="Hand"/>
 
                 </StackPanel>
             </Grid>

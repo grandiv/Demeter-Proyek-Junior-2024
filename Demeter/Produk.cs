@@ -12,9 +12,10 @@ namespace Demeter
         public string namaProduk { get; set; }
         public string deskripsiProduk { get; set; }
         public double hargaProduk { get; set; }
-        public string kategoriProduk { get; set; }
         public string namaToko { get; set; }
         public string status {  get; set; }
+        public int stok { get; set; }
+        public string photoUrl { get; set; }
 
         public void updateStatus(string status)
         {

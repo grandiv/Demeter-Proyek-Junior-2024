@@ -17,8 +17,127 @@ namespace Demeter
 
         public void addProduk(Produk produk)
         {
-            produk.namaToko = this.namaToko;
+           using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
+           {
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        string getUserIdQuery = "SELECT userid FROM pengguna WHERE username = @username";
+                        int userId;
+                        using (var cmd = new NpgsqlCommand(getUserIdQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("username", User.CurrentUsername);
+                            var result = cmd.ExecuteScalar();
+                            if (result == null)
+                            {
+                                throw new Exception("User not found");
+                            }
+                            userId = (int)result;
+                        }
+
+                        string getSellerIdQuery = "SELECT sellerid, namatoko FROM seller WHERE userid = @userId";
+                        int sellerId;
+                        string namaToko;
+                        using (var cmd = new NpgsqlCommand(getSellerIdQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("userId", userId);
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                if (!reader.Read())
+                                {
+                                    throw new Exception("Seller not found");
+                                }
+                                sellerId = reader.GetInt32(0);
+                                namaToko = reader.GetString(1);
+                            }
+                        }
+
+                        string insertProdukQuery = @"
+                        INSERT INTO produk (nama, deskripsi, harga, namatoko, sellerid, photourl, stok)
+                        VALUES (@nama, @deskripsi, @harga, @namatoko, @sellerid, @photourl, @stok)";
+
+                        using (var cmd = new NpgsqlCommand(insertProdukQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("nama", produk.namaProduk);
+                            cmd.Parameters.AddWithValue("deskripsi", produk.deskripsiProduk);
+                            cmd.Parameters.AddWithValue("harga", produk.hargaProduk);
+                            cmd.Parameters.AddWithValue("namatoko", namaToko);
+                            cmd.Parameters.AddWithValue("sellerid", sellerId);
+                            cmd.Parameters.AddWithValue("photourl", !string.IsNullOrEmpty(produk.photoUrl) ? produk.photoUrl : (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("stok", produk.stok);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception("Failed to add product: " + ex.Message);
+                    }
+                }
+           }
         }
+
+        public List<Produk> LoadSellerProducts()
+        {
+            List<Produk> products = new List<Produk>();
+
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+            SELECT 
+                p.produkid,
+                p.nama,
+                p.deskripsi,
+                p.harga,
+                p.namatoko,
+                p.status,
+                p.stok,
+                p.photourl
+            FROM produk p
+            INNER JOIN seller s ON p.sellerid = s.sellerid
+            INNER JOIN pengguna u ON s.userid = u.userid
+            WHERE u.username = @username";
+
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("username", User.CurrentUsername);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Produk product = new Produk
+                                {
+                                    produkID = reader.GetInt32(0),
+                                    namaProduk = reader.GetString(1),
+                                    deskripsiProduk = reader.GetString(2),
+                                    hargaProduk = reader.GetDouble(3),
+                                    namaToko = reader.GetString(4),
+                                    status = reader.GetString(5),
+                                    stok = reader.GetInt32(6),
+                                    photoUrl = reader.IsDBNull(7) ? null : reader.GetString(7)
+                                };
+                                products.Add(product);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error loading seller products: " + ex.Message);
+                    throw;
+                }
+            }
+
+            return products;
+        }
+
         public void deleteProduk(int produkId)
         {
             // TODO
