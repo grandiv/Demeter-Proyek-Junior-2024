@@ -49,6 +49,15 @@ namespace Demeter
             user.Register();
 
             MessageBox.Show("User registered successfully!");
+
+            // Create a new instance of LoginWindow
+            LoginWindow loginWindow = new LoginWindow();
+
+            // Show the LoginWindow
+            loginWindow.Show();
+
+            // Close the current RegisterWindow
+            this.Close();
         }
     }
 }

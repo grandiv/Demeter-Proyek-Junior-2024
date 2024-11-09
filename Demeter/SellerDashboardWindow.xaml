@@ -79,7 +79,7 @@
                                         <ImageBrush ImageSource="/Images/DefaultProduct.jpg" />
                                     </Rectangle.Fill>
                                 </Rectangle>
-                                <TextBlock Text="Image Link" Margin="0,5,0,0"/>
+                                <TextBlock Text="Link Gambar" Margin="0,5,0,0"/>
                                 <TextBox x:Name="ImageLinkTextBox" Margin="0,0,0,10"/>
                             </StackPanel>
                             
