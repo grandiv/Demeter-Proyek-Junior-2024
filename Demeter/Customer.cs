@@ -80,11 +80,11 @@ namespace Demeter
                         notelp = @noTelp, 
                         alamatpengiriman = @alamat, 
                         photourl = @photoUrl
-                    WHERE custid = @userId;
+                    WHERE userid = @userId;
                     
-                    INSERT INTO customer (custid, nama, notelp, alamatpengiriman, photourl)
+                    INSERT INTO customer (userid, nama, notelp, alamatpengiriman, photourl)
                     SELECT @userId, @nama, @noTelp, @alamat, @photoUrl
-                    WHERE NOT EXISTS (SELECT 1 FROM customer WHERE custid = @userId);";
+                    WHERE NOT EXISTS (SELECT 1 FROM customer WHERE userid = @userId);";
 
                         using (var cmd = new NpgsqlCommand(updateCustomerQuery, conn, transaction))
                         {
@@ -127,7 +127,7 @@ namespace Demeter
                     c.alamatpengiriman,
                     c.photourl
                 FROM customer c 
-                INNER JOIN pengguna p ON c.custid = p.userid 
+                INNER JOIN pengguna p ON c.userid = p.userid 
                 WHERE p.username = @username";
 
                     using (var cmd = new NpgsqlCommand(query, conn))

@@ -49,6 +49,148 @@
                     </StackPanel>
                 </Grid>
             </Grid>
+            
+            <!-- Products Section -->
+            <ScrollViewer Grid.Row="1">
+                <UniformGrid x:Name="ProductsGrid" Columns="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20">
+                    <!-- Placeholder for "Add Product" Button -->
+                    <Border Width="200" Height="250" Background="#F0F0F0" CornerRadius="8" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"  MouseLeftButtonDown="ShowAddProductModal" Cursor="Hand">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="+" FontSize="48" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </UniformGrid>
+            </ScrollViewer>
+
+            <!-- Modal for Adding Product -->
+            <Border x:Name="AddProductModal" Grid.Row="1" Background="Transparent" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border Background="#F0F0F0" CornerRadius="10" Padding="20" Width="700" Height="365">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Image and Image Link -->
+                            <StackPanel Grid.Column="0" Margin="0,0,50,0" VerticalAlignment="Center">
+                                <Rectangle x:Name="ProductPictureRectangle" Width="200" Height="200" Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                    <Rectangle.Fill>
+                                        <ImageBrush ImageSource="/Images/DefaultProduct.jpg" />
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <TextBlock Text="Link Gambar" Margin="0,5,0,0"/>
+                                <TextBox x:Name="ImageLinkTextBox" Margin="0,0,0,10"/>
+                            </StackPanel>
+                            
+                            <!-- Product Information -->
+                            <StackPanel Grid.Column="1">
+                                <Button Content="X" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseAddProductModal" Cursor="Hand"/>
+                                
+                                <TextBlock Text="Nama Produk" Margin="0,5,0,0"/>
+                                <TextBox x:Name="ProductNameTextBox" Margin="0,0,0,10"/>
+
+                                <TextBlock Text="Deskripsi Produk" Margin="0,5,0,0"/>
+                                <TextBox x:Name="ProductDescriptionTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap"/>
+
+                                <TextBlock Text="Harga" Margin="0,5,0,0"/>
+                                <TextBox x:Name="ProductPriceTextBox" Margin="0,0,0,10"/>
+
+                                <TextBlock Text="Jumlah Stok Total" Margin="0,5,0,0"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                                    <Button Content="-" Width="30" Margin="5" Click="DecreaseStock_Click"/>
+                                    <TextBox x:Name="ProductStockTextBox" Width="50" Text="1" TextAlignment="Center" Padding="4"/>
+                                    <Button Content="+" Width="30" Margin="5" Click="IncreaseStock_Click"/>
+                                </StackPanel>
+
+                                <Button x:Name="AddProductButton" Content="Add Product" Width="150" Height="40" Background="#4CAF50" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Click="AddProductButton_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Border>
+            <!-- Modal for Previewing Product -->
+            <Border x:Name="PreviewProductModal" Grid.Row="1" Background="Transparent" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border Background="#F0F0F0" CornerRadius="10" Padding="20" Width="700" Height="365">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <!-- Image and Image Link -->
+                            <StackPanel Grid.Column="0" Margin="0,0,50,0" VerticalAlignment="Center">
+                                <Rectangle x:Name="PreviewProductPictureRectangle" Width="200" Height="200" Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                    <Rectangle.Fill>
+                                        <ImageBrush ImageSource="/Images/DefaultProduct.jpg" />
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <TextBlock Text="Link Gambar" Margin="0,5,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="PreviewImageLinkTextBox" Margin="0,0,0,10" IsReadOnly="True" Background="#F0F0F0" BorderThickness="0"/>
+                            </StackPanel>
+
+                            <!-- Product Information -->
+                            <StackPanel Grid.Column="1">
+                                <Button Content="X" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ClosePreviewProductModal" Cursor="Hand" BorderThickness="0"/>
+                                <TextBlock Text="Nama Produk" Margin="0,5,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="PreviewProductNameTextBox" Margin="0,0,0,10" IsReadOnly="True" Background="#F0F0F0" BorderThickness="0"/>
+                                <TextBlock Text="Deskripsi Produk" Margin="0,5,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="PreviewProductDescriptionTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" IsReadOnly="True" Background="#F0F0F0" BorderThickness="0"/>
+                                <TextBlock Text="Harga" Margin="0,5,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="PreviewProductPriceTextBox" Margin="0,0,0,10" IsReadOnly="True" Background="#F0F0F0" BorderThickness="0"/>
+                                <TextBlock Text="Jumlah Stok Total" Margin="0,5,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="PreviewProductStockTextBox" Margin="0,0,0,10" IsReadOnly="True" Background="#F0F0F0" BorderThickness="0"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Content="Edit" FontSize="12" Padding="20, 5" Margin="10" Background="#004b0c" Foreground="White" BorderThickness="0" Click="ShowEditProductModal" Cursor="Hand"/>
+                                    <Button Content="Delete" FontSize="12" Padding="20, 5" Margin="10" Background="#ff3636" BorderThickness="0" Click="DeleteProduct" Cursor="Hand"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Border>
+
+            <!-- Modal for Editing Product -->
+            <Border x:Name="EditProductModal" Grid.Row="1" Background="Transparent" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border Background="#F0F0F0" CornerRadius="10" Padding="20" Width="700" Height="365">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <!-- Image and Image Link -->
+                            <StackPanel Grid.Column="0" Margin="0,0,50,0" VerticalAlignment="Center">
+                                <Rectangle x:Name="EditProductPictureRectangle" Width="200" Height="200" Margin="0,0,0,10" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                    <Rectangle.Fill>
+                                        <ImageBrush ImageSource="/Images/DefaultProduct.jpg" />
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                                <TextBlock Text="Link Gambar" Margin="0,5,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="EditImageLinkTextBox" Margin="0,0,0,10"/>
+                            </StackPanel>
+
+                            <!-- Product Information -->
+                            <StackPanel Grid.Column="1">
+                                <Button Content="X" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseEditProductModal" BorderThickness="0" Cursor="Hand"/>
+                                <TextBlock Text="Nama Produk" Margin="0,5,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="EditProductNameTextBox" Margin="0,0,0,10"/>
+                                <TextBlock Text="Deskripsi Produk" Margin="0,5,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="EditProductDescriptionTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap"/>
+                                <TextBlock Text="Harga" Margin="0,5,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="EditProductPriceTextBox" Margin="0,0,0,10"/>
+                                <TextBlock Text="Jumlah Stok Total" Margin="0,5,0,0" FontWeight="Bold"/>
+                                <TextBox x:Name="EditProductStockTextBox" Margin="0,0,0,10"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Content="Cancel" FontSize="12" Padding="20, 5" Margin="10" BorderThickness="0" Click="CancelEditProduct" Cursor="Hand"/>
+                                    <Button Content="Delete" FontSize="12" Padding="20, 5" Margin="10" Background="#ff3636" BorderThickness="0" Click="DeleteProduct" Cursor="Hand"/>
+                                    <Button Content="Save" FontSize="12" Padding="20, 5" Margin="10" Background="#004b0c" Foreground="White" BorderThickness="0" Click="SaveProduct" Cursor="Hand"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Border>
         </Grid>
         <!-- Frame to display pages -->
         <Frame x:Name="SellerFrame"  Grid.Row="1" NavigationUIVisibility="Hidden"/>
