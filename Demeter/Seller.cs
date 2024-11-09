@@ -56,11 +56,11 @@ namespace Demeter
                         notelp = @noTelp, 
                         alamat = @alamat, 
                         photourl = @photoUrl
-                    WHERE sellerid = @userId;
+                    WHERE userid = @userId;
                     
-                    INSERT INTO seller (sellerid, namatoko, notelp, alamat, photourl)
+                    INSERT INTO seller (userid, namatoko, notelp, alamat, photourl)
                     SELECT @userId, @nama, @noTelp, @alamat, @photoUrl
-                    WHERE NOT EXISTS (SELECT 1 FROM seller WHERE sellerid = @userId);";
+                    WHERE NOT EXISTS (SELECT 1 FROM seller WHERE userid = @userId);";
 
                         using (var cmd = new NpgsqlCommand(updateSellerQuery, conn, transaction))
                         {
@@ -103,7 +103,7 @@ namespace Demeter
                     s.alamat,
                     s.photourl
                 FROM seller s
-                INNER JOIN pengguna p ON s.sellerid = p.userid 
+                INNER JOIN pengguna p ON s.userid = p.userid 
                 WHERE p.username = @username";
 
                     using (var cmd = new NpgsqlCommand(query, conn))
