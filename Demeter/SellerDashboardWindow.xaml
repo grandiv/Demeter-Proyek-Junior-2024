@@ -63,7 +63,7 @@
             </ScrollViewer>
 
             <!-- Modal for Adding Product -->
-            <Border x:Name="AddProductModal" Grid.Row="1" Background="#80000000" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border x:Name="AddProductModal" Grid.Row="1" Background="Transparent" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Border Background="#F0F0F0" CornerRadius="10" Padding="20" Width="700" Height="365">
                     <StackPanel>
                         <Grid>
