@@ -283,5 +283,15 @@ namespace Demeter
                 MessageBox.Show("Failed to update product: " + ex.Message);
             }
         }
+
+        private void SellerFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
+
+        private void SellerFrame_Navigated_1(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
     }
 }
