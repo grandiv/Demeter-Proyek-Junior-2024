@@ -157,5 +157,15 @@ namespace Demeter
             CancelButton.Visibility = Visibility.Collapsed;
 
         }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            User.CurrentUsername = null;
+
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+
+            Window.GetWindow(this).Close();
+        }
     }
 }
