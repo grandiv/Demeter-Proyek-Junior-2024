@@ -98,9 +98,9 @@
 
                                 <TextBlock Text="Jumlah Stok Total" Margin="0,5,0,0"/>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
-                                    <Button Content="-" Width="30" Margin="5" Click="DecreaseStock_Click"/>
+                                    <Button Content="-" Width="30" Margin="5" Click="DecreaseStock_Click" Cursor="Hand"/>
                                     <TextBox x:Name="ProductStockTextBox" Width="50" Text="1" TextAlignment="Center" Padding="4"/>
-                                    <Button Content="+" Width="30" Margin="5" Click="IncreaseStock_Click"/>
+                                    <Button Content="+" Width="30" Margin="5" Click="IncreaseStock_Click" Cursor="Hand"/>
                                 </StackPanel>
 
                                 <Button x:Name="AddProductButton" Content="Add Product" Width="150" Height="40" Background="#4CAF50" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Click="AddProductButton_Click"/>

@@ -47,7 +47,8 @@ namespace Demeter
                 StackPanel productPanel = new StackPanel
                 {
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center
+                    VerticalAlignment = VerticalAlignment.Center,
+                    Cursor = Cursors.Hand
                 };
 
                 Image productImage = new Image
@@ -127,8 +128,27 @@ namespace Demeter
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
+            // Hide the ProductsGrid when navigating to the profile
+            ProductsGrid.Visibility = Visibility.Collapsed;
+
             // Navigate to the CustomerProfile page in the CustomerFrame
             CustomerFrame.Navigate(new CustomerProfile());
+        }
+
+        private void IncreaseQuantity_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(QuantityTextBox.Text, out int stock))
+            {
+                QuantityTextBox.Text = (stock + 1).ToString();
+            }
+        }
+
+        private void DecreaseQuantity_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(QuantityTextBox.Text, out int stock) && stock > 0)
+            {
+                QuantityTextBox.Text = (stock - 1).ToString();
+            }
         }
     }
 }

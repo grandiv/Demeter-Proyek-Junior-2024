@@ -174,9 +174,9 @@
                                          FontSize="24" Margin="0,0,0,15" Visibility="Collapsed"/>
                             </Grid>
                             <Button x:Name="LogoutButton" Content="Logout" Grid.Column="2"
-        Click="LogoutButton_Click" FontSize="24" 
-        Padding="20,5" Background="#ff3636" 
-        Foreground="White" BorderThickness="0" Cursor="Hand"/>
+                                Click="LogoutButton_Click" FontSize="24" 
+                                Padding="20,5" Background="#ff3636" 
+                                Foreground="White" BorderThickness="0" Cursor="Hand"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Border>
