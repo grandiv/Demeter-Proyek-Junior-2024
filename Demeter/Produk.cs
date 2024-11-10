@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demeter
 {
-    internal class Produk
+    public class Produk
     {
         public int produkID { get; set; }
         public string namaProduk { get; set; }

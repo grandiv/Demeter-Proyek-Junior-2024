@@ -111,5 +111,49 @@ namespace Demeter
             }
             return null; // Return null if authentication fails
         }
+
+        public List<Produk> LoadUserProducts()
+        {
+            List<Produk> products = new List<Produk>();
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"
+            SELECT 
+                produkid, nama, deskripsi, harga, namatoko, status, stok, photourl
+            FROM produk";
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Produk product = new Produk
+                                {
+                                    produkID = reader.GetInt32(0),
+                                    namaProduk = reader.GetString(1),
+                                    deskripsiProduk = reader.GetString(2),
+                                    hargaProduk = reader.GetDouble(3),
+                                    namaToko = reader.GetString(4),
+                                    status = reader.GetString(5),
+                                    stok = reader.GetInt32(6),
+                                    photoUrl = reader.IsDBNull(7) ? null : reader.GetString(7)
+                                };
+                                products.Add(product);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error loading user products: " + ex.Message);
+                    throw;
+                }
+            }
+            return products;
+        }
+
     }
 }
