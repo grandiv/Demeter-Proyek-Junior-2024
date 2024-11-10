@@ -127,6 +127,9 @@ namespace Demeter
 
         private void ProfileButton_Click(object sender, RoutedEventArgs e)
         {
+            // Hide the ProductsGrid when navigating to the profile
+            ProductsGrid.Visibility = Visibility.Collapsed;
+
             // Navigate to the CustomerProfile page in the CustomerFrame
             CustomerFrame.Navigate(new CustomerProfile());
         }
