@@ -58,11 +58,11 @@ namespace Demeter
                 };
 
                 Grid productGrid = new Grid();
-                productGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
-                productGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(100) }); // Image
-                productGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) }); // Name
+                productGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                productGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) }); // Image
+                productGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }); // Name
                 productGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }); // Price
-                productGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(120) }); // Quantity
+                productGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }); // Quantity
 
                 // Delete button
                 Button deleteBtn = new Button
@@ -83,8 +83,8 @@ namespace Demeter
                 Image productImage = new Image
                 {
                     Source = new BitmapImage(new Uri(cartItem.Produk.photoUrl)),
-                    Width = 80,
-                    Height = 80,
+                    Width = 100,
+                    Height = 100,
                     Stretch = Stretch.Uniform
                 };
                 Grid.SetColumn(productImage, 0);
