@@ -73,7 +73,12 @@ namespace Demeter
                         {
                             cmd.Parameters.AddWithValue("cartid", cartId);
                             cmd.Parameters.AddWithValue("produkid", produk.produkID);
-                            cmd.ExecuteNonQuery();
+
+                            // Execute insert for each quantity
+                            for (int i = 0; i < quantity; i++)
+                            {
+                                cmd.ExecuteNonQuery();
+                            }
                         }
 
                         // Update the total price in the cart

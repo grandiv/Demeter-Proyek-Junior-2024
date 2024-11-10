@@ -123,12 +123,22 @@ namespace Demeter
         private void AddToCart_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(QuantityTextBox.Text, out int quantity) && quantity > 0)
-    {
-                // Use the stored selected product
+            {
                 Produk selectedProduct = this.selectedProduct;
 
                 if (selectedProduct != null)
                 {
+                    Cart cart = new Cart();
+                    int currentCartQuantity = cart.GetCurrentCartQuantity(selectedProduct.produkID);
+                    int remainingStock = selectedProduct.stok - currentCartQuantity;
+
+                    if (quantity > remainingStock)
+                    {
+                        MessageBox.Show($"Cannot add {quantity} items. Only {remainingStock} available in stock (You already have {currentCartQuantity} in cart).",
+                            "Stock Limit", MessageBoxButton.OK, MessageBoxImage.Information);
+                        return;
+                    }
+
                     Customer currentCustomer = new Customer();
                     currentCustomer.addToCart(selectedProduct, quantity);
                     MessageBox.Show($"Added {quantity} of {ProductNameTextBlock.Text} to cart.");
@@ -167,7 +177,19 @@ namespace Demeter
         {
             if (int.TryParse(QuantityTextBox.Text, out int stock))
             {
-                QuantityTextBox.Text = (stock + 1).ToString();
+                Cart cart = new Cart();
+                int currentCartQuantity = cart.GetCurrentCartQuantity(selectedProduct.produkID);
+                int remainingStock = selectedProduct.stok - currentCartQuantity;
+
+                if (stock < remainingStock)
+                {
+                    QuantityTextBox.Text = (stock + 1).ToString();
+                }
+                else
+                {
+                    MessageBox.Show($"Cannot add more items. Only {remainingStock} remaining in stock (You already have {currentCartQuantity} in cart).",
+                        "Stock Limit", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
         }
 
