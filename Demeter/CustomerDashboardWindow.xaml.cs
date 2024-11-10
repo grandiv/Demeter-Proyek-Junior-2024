@@ -17,6 +17,7 @@ namespace Demeter
     public partial class CustomerDashboardWindow : Window
     {
         private User currentUser;
+        private Produk selectedProduct;
 
         public CustomerDashboardWindow()
         {
@@ -107,6 +108,9 @@ namespace Demeter
                     ProductImage.Source = new BitmapImage(new Uri("/Images/DefaultProduct.jpg", UriKind.Relative));
                 }
 
+                // Store the selected product in a field for later use
+                this.selectedProduct = selectedProduct;
+
                 ProductDetailsModal.Visibility = Visibility.Visible;
             }
         }
@@ -118,11 +122,26 @@ namespace Demeter
 
         private void AddToCart_Click(object sender, RoutedEventArgs e)
         {
-            // Logic to add product to cart
-            int quantity = int.TryParse(QuantityTextBox.Text, out int result) ? result : 1;
+            if (int.TryParse(QuantityTextBox.Text, out int quantity) && quantity > 0)
+    {
+                // Use the stored selected product
+                Produk selectedProduct = this.selectedProduct;
 
-            // Add product and quantity to cart here (this might involve a Cart class or collection)
-            MessageBox.Show($"Added {quantity} of {ProductNameTextBlock.Text} to cart.");
+                if (selectedProduct != null)
+                {
+                    Customer currentCustomer = new Customer();
+                    currentCustomer.addToCart(selectedProduct, quantity);
+                    MessageBox.Show($"Added {quantity} of {ProductNameTextBlock.Text} to cart.");
+                }
+                else
+                {
+                    MessageBox.Show("No product selected.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid quantity.");
+            }
         }
 
 

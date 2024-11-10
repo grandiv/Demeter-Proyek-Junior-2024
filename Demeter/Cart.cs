@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,9 @@ namespace Demeter
         public List<Produk> DaftarBelanja { get; set; } = new List<Produk>();
         public double TotalHarga { get; set; }
 
-        public double CalcTotalHarga()
-        {
-            // Implementation of calculating total price
-            return DaftarBelanja.Sum(p => p.hargaProduk);
+        public void CalcTotalHarga()
+        { 
+            
         }
     }
 }
