@@ -10,7 +10,7 @@ namespace Demeter
     {
         public int CartID { get; set; }
         public int CustID { get; set; }
-        public List<Produk> DaftarBelanja { get; set; }
+        public List<Produk> DaftarBelanja { get; set; } = new List<Produk>();
         public double TotalHarga { get; set; }
 
         public double CalcTotalHarga()

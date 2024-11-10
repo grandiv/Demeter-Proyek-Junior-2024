@@ -135,6 +135,15 @@ namespace Demeter
             CustomerFrame.Navigate(new CustomerProfile());
         }
 
+        private void CartButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Hide the ProductsGrid when navigating to the profile
+            ProductsGrid.Visibility = Visibility.Collapsed;
+
+            // Navigate to the CustomerProfile page in the CustomerFrame
+            CustomerFrame.Navigate(new CartPage());
+        }
+
         private void IncreaseQuantity_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(QuantityTextBox.Text, out int stock))
