@@ -17,6 +17,7 @@ namespace Demeter
     public partial class CustomerDashboardWindow : Window
     {
         private User currentUser;
+        private Produk selectedProduct;
 
         public CustomerDashboardWindow()
         {
@@ -107,6 +108,9 @@ namespace Demeter
                     ProductImage.Source = new BitmapImage(new Uri("/Images/DefaultProduct.jpg", UriKind.Relative));
                 }
 
+                // Store the selected product in a field for later use
+                this.selectedProduct = selectedProduct;
+
                 ProductDetailsModal.Visibility = Visibility.Visible;
             }
         }
@@ -118,11 +122,36 @@ namespace Demeter
 
         private void AddToCart_Click(object sender, RoutedEventArgs e)
         {
-            // Logic to add product to cart
-            int quantity = int.TryParse(QuantityTextBox.Text, out int result) ? result : 1;
+            if (int.TryParse(QuantityTextBox.Text, out int quantity) && quantity > 0)
+            {
+                Produk selectedProduct = this.selectedProduct;
 
-            // Add product and quantity to cart here (this might involve a Cart class or collection)
-            MessageBox.Show($"Added {quantity} of {ProductNameTextBlock.Text} to cart.");
+                if (selectedProduct != null)
+                {
+                    Cart cart = new Cart();
+                    int currentCartQuantity = cart.GetCurrentCartQuantity(selectedProduct.produkID);
+                    int remainingStock = selectedProduct.stok - currentCartQuantity;
+
+                    if (quantity > remainingStock)
+                    {
+                        MessageBox.Show($"Cannot add {quantity} items. Only {remainingStock} available in stock (You already have {currentCartQuantity} in cart).",
+                            "Stock Limit", MessageBoxButton.OK, MessageBoxImage.Information);
+                        return;
+                    }
+
+                    Customer currentCustomer = new Customer();
+                    currentCustomer.addToCart(selectedProduct, quantity);
+                    MessageBox.Show($"Added {quantity} of {ProductNameTextBlock.Text} to cart.");
+                }
+                else
+                {
+                    MessageBox.Show("No product selected.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid quantity.");
+            }
         }
 
 
@@ -135,11 +164,32 @@ namespace Demeter
             CustomerFrame.Navigate(new CustomerProfile());
         }
 
+        private void CartButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Hide the ProductsGrid when navigating to the profile
+            ProductsGrid.Visibility = Visibility.Collapsed;
+
+            // Navigate to the CustomerProfile page in the CustomerFrame
+            CustomerFrame.Navigate(new CartPage());
+        }
+
         private void IncreaseQuantity_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(QuantityTextBox.Text, out int stock))
             {
-                QuantityTextBox.Text = (stock + 1).ToString();
+                Cart cart = new Cart();
+                int currentCartQuantity = cart.GetCurrentCartQuantity(selectedProduct.produkID);
+                int remainingStock = selectedProduct.stok - currentCartQuantity;
+
+                if (stock < remainingStock)
+                {
+                    QuantityTextBox.Text = (stock + 1).ToString();
+                }
+                else
+                {
+                    MessageBox.Show($"Cannot add more items. Only {remainingStock} remaining in stock (You already have {currentCartQuantity} in cart).",
+                        "Stock Limit", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
         }
 

@@ -11,7 +11,7 @@ namespace Demeter
 {
     public class User
     {
-        private int Id { get; set; }
+        public int Id { get; set; }
         protected string username { get; set; }
         private string passwordHash { get; set; }
         private string email { get; set; }

@@ -15,19 +15,97 @@ namespace Demeter
         public int noTelp { get; set; }
         public string alamatPengiriman { get; set; }
         public string photoUrl { get; set; }
+        public int custid { get; set; }
 
-        public void addToCart(Produk produk)
+        public void addToCart(Produk produk, int quantity)
         {
-            Cart cart = new Cart();
-            cart.DaftarBelanja.Add(produk);
-            cart.TotalHarga = cart.CalcTotalHarga();
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // Get the customer ID
+                        string getCustomerIdQuery = @"
+                            SELECT c.custid 
+                            FROM customer c
+                            INNER JOIN pengguna p ON c.userid = p.userid
+                            WHERE p.username = @username";
+                        int customerId;
+                        using (var cmd = new NpgsqlCommand(getCustomerIdQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("username", User.CurrentUsername);
+                            var result = cmd.ExecuteScalar();
+                            if (result == null)
+                            {
+                                throw new Exception("Customer not found");
+                            }
+                            customerId = (int)result;
+                        }
+
+                        // Check if the customer already has a cart
+                        string getCartIdQuery = "SELECT cartid FROM cart WHERE custid = @custid";
+                        int cartId;
+                        using (var cmd = new NpgsqlCommand(getCartIdQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("custid", customerId);
+                            var result = cmd.ExecuteScalar();
+                            if (result == null)
+                            {
+                                // Create a new cart if it doesn't exist
+                                string insertCartQuery = "INSERT INTO cart (totalHarga, custid) VALUES (0, @custid) RETURNING cartid";
+                                using (var insertCmd = new NpgsqlCommand(insertCartQuery, conn, transaction))
+                                {
+                                    insertCmd.Parameters.AddWithValue("custid", customerId);
+                                    cartId = (int)insertCmd.ExecuteScalar();
+                                }
+                            }
+                            else
+                            {
+                                cartId = (int)result;
+                            }
+                        }
+
+                        // Insert the product into the CartProduk table
+                        string insertCartProdukQuery = "INSERT INTO cartproduk (cartid, produkid) VALUES (@cartid, @produkid)";
+                        using (var cmd = new NpgsqlCommand(insertCartProdukQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("cartid", cartId);
+                            cmd.Parameters.AddWithValue("produkid", produk.produkID);
+
+                            // Execute insert for each quantity
+                            for (int i = 0; i < quantity; i++)
+                            {
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        // Update the total price in the cart
+                        string updateCartQuery = "UPDATE cart SET totalHarga = totalHarga + @harga WHERE cartid = @cartid";
+                        using (var cmd = new NpgsqlCommand(updateCartQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("harga", produk.hargaProduk * quantity);
+                            cmd.Parameters.AddWithValue("cartid", cartId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception("Failed to add product to cart: " + ex.Message);
+                    }
+                }
+            }
         }
 
         public void deleteFromCart(Produk produk)
         {
-            Cart cart = new Cart();
-            cart.DaftarBelanja.Remove(produk);
-            cart.TotalHarga = cart.CalcTotalHarga();
+            //Cart cart = new Cart();
+            //cart.DaftarBelanja.Remove(produk);
+            //cart.TotalHarga = cart.CalcTotalHarga();
         }
 
         public void searchProduk(string keyword)

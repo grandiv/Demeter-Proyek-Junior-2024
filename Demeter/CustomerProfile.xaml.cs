@@ -67,6 +67,11 @@ namespace Demeter
             dashboard.Show();
             Window.GetWindow(this).Close();
         }
+        private void CartButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to the CartPage
+            NavigationService.Navigate(new CartPage());
+        }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
