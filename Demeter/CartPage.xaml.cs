@@ -41,6 +41,12 @@ namespace Demeter
             NavigationService.Navigate(new CustomerProfile());
         }
 
+        private void HistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to the CustomerProfile page
+            NavigationService.Navigate(new HistoryPage());
+        }
+
         private void LoadCart()
         {
             currentCart = new Cart();

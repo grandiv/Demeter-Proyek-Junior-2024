@@ -43,7 +43,7 @@
                         <TextBlock Text="Cart" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" MouseLeftButtonDown="HistoryButton_Click" Cursor="Hand">
                         <Image Source="/Images/HistoryLogo.png" Height="25"/>
                         <TextBlock Text="History" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
                     </StackPanel>
