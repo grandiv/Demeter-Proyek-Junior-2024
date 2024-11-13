@@ -277,25 +277,69 @@ namespace Demeter
                 {
                     try
                     {
-                        // 1. Create history record
-                        string createHistoryQuery = @"
-                    INSERT INTO history (tanggalbelanja, cartid) 
-                    VALUES (@tanggalbelanja, @cartid)";
+                        // 1. Get customer ID
+                        string getCustomerIdQuery = @"
+                            SELECT c.custid 
+                            FROM customer c
+                            INNER JOIN pengguna p ON c.userid = p.userid
+                            WHERE p.username = @username";
+                        int customerId;
+                        using (var cmd = new NpgsqlCommand(getCustomerIdQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("username", User.CurrentUsername);
+                            var result = cmd.ExecuteScalar();
+                            if (result == null)
+                            {
+                                throw new Exception("Customer not found");
+                            }
+                            customerId = (int)result;
+                        }
 
+                        // 2. Get total price from cart
+                        string getCartTotalQuery = "SELECT totalharga FROM cart WHERE cartid = @cartid";
+                        double totalHarga;
+                        using (var cmd = new NpgsqlCommand(getCartTotalQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("cartid", cartId);
+                            totalHarga = Convert.ToDouble(cmd.ExecuteScalar());
+                        }
+
+                        // 3. Create history record and get the new historyid
+                        string createHistoryQuery = @"
+                            INSERT INTO history (tanggalbelanja, custid, totalharga) 
+                            VALUES (@tanggalbelanja, @custid, @totalharga)
+                            RETURNING historyid";
+
+                        int historyId;
                         using (var cmd = new NpgsqlCommand(createHistoryQuery, conn, transaction))
                         {
                             cmd.Parameters.AddWithValue("tanggalbelanja", DateTime.Now);
+                            cmd.Parameters.AddWithValue("custid", customerId);
+                            cmd.Parameters.AddWithValue("totalharga", totalHarga);
+                            historyId = (int)cmd.ExecuteScalar();
+                        }
+
+                        // 4. Copy cart items to historyproduk
+                        string copyToHistoryQuery = @"
+                            INSERT INTO historyproduk (historyid, produkid)
+                            SELECT @historyid, produkid
+                            FROM cartproduk
+                            WHERE cartid = @cartid";
+
+                        using (var cmd = new NpgsqlCommand(copyToHistoryQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("historyid", historyId);
                             cmd.Parameters.AddWithValue("cartid", cartId);
                             cmd.ExecuteNonQuery();
                         }
 
-                        // 2. Decrease product quantities
+                        // 5. Update product quantities and status
                         string updateProductQuantitiesQuery = @"
                             UPDATE produk 
                             SET stok = stok - subquery.quantity,
                                 status = CASE 
-                                    WHEN (stok - subquery.quantity) > 0 THEN 'Tersedia'
-                                    ELSE 'Habis'
+                                    WHEN (stok - subquery.quantity) <= 0 THEN 'Habis'
+                                    ELSE 'Tersedia'
                                 END
                             FROM (
                                 SELECT produkid, COUNT(*) as quantity 
@@ -311,7 +355,7 @@ namespace Demeter
                             cmd.ExecuteNonQuery();
                         }
 
-                        // 3. Clear cart
+                        // 6. Clear cart
                         string clearCartQuery = "DELETE FROM cartproduk WHERE cartid = @cartid";
                         using (var cmd = new NpgsqlCommand(clearCartQuery, conn, transaction))
                         {
@@ -319,7 +363,7 @@ namespace Demeter
                             cmd.ExecuteNonQuery();
                         }
 
-                        // Reset cart total
+                        // 7. Reset cart total
                         string resetCartTotalQuery = "UPDATE cart SET totalharga = 0 WHERE cartid = @cartid";
                         using (var cmd = new NpgsqlCommand(resetCartTotalQuery, conn, transaction))
                         {
