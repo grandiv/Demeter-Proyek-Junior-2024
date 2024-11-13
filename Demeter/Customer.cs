@@ -267,5 +267,75 @@ namespace Demeter
                 }
             }
         }
+
+        public void Order(int cartId)
+        {
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // 1. Create history record
+                        string createHistoryQuery = @"
+                    INSERT INTO history (tanggalbelanja, cartid) 
+                    VALUES (@tanggalbelanja, @cartid)";
+
+                        using (var cmd = new NpgsqlCommand(createHistoryQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("tanggalbelanja", DateTime.Now);
+                            cmd.Parameters.AddWithValue("cartid", cartId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // 2. Decrease product quantities
+                        string updateProductQuantitiesQuery = @"
+                            UPDATE produk 
+                            SET stok = stok - subquery.quantity,
+                                status = CASE 
+                                    WHEN (stok - subquery.quantity) > 0 THEN 'Tersedia'
+                                    ELSE 'Habis'
+                                END
+                            FROM (
+                                SELECT produkid, COUNT(*) as quantity 
+                                FROM cartproduk 
+                                WHERE cartid = @cartid 
+                                GROUP BY produkid
+                            ) as subquery 
+                            WHERE produk.produkid = subquery.produkid";
+
+                        using (var cmd = new NpgsqlCommand(updateProductQuantitiesQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("cartid", cartId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // 3. Clear cart
+                        string clearCartQuery = "DELETE FROM cartproduk WHERE cartid = @cartid";
+                        using (var cmd = new NpgsqlCommand(clearCartQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("cartid", cartId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // Reset cart total
+                        string resetCartTotalQuery = "UPDATE cart SET totalharga = 0 WHERE cartid = @cartid";
+                        using (var cmd = new NpgsqlCommand(resetCartTotalQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("cartid", cartId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception("Failed to process order: " + ex.Message);
+                    }
+                }
+            }
+        }
     }
 }

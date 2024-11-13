@@ -55,8 +55,9 @@ namespace Demeter
                         }
 
                         string insertProdukQuery = @"
-                        INSERT INTO produk (nama, deskripsi, harga, namatoko, sellerid, photourl, stok)
-                        VALUES (@nama, @deskripsi, @harga, @namatoko, @sellerid, @photourl, @stok)";
+                            INSERT INTO produk (nama, deskripsi, harga, namatoko, sellerid, photourl, stok, status)
+                            VALUES (@nama, @deskripsi, @harga, @namatoko, @sellerid, @photourl, @stok, 
+                                CASE WHEN @stok > 0 THEN 'Tersedia' ELSE 'Habis' END)";
 
                         using (var cmd = new NpgsqlCommand(insertProdukQuery, conn, transaction))
                         {
@@ -174,13 +175,17 @@ namespace Demeter
                     try
                     {
                         string updateProdukQuery = @"
-                        UPDATE produk 
-                        SET nama = @nama, 
-                            deskripsi = @deskripsi, 
-                            harga = @harga, 
-                            photourl = @photoUrl, 
-                            stok = @stok 
-                        WHERE produkid = @produkId";
+                            UPDATE produk 
+                            SET nama = @nama, 
+                                deskripsi = @deskripsi, 
+                                harga = @harga, 
+                                photourl = @photoUrl, 
+                                stok = @stok,
+                                status = CASE 
+                                    WHEN @stok > 0 THEN 'Tersedia'
+                                    ELSE 'Habis'
+                                END
+                            WHERE produkid = @produkId";
                         using (var cmd = new NpgsqlCommand(updateProdukQuery, conn, transaction))
                         {
                             cmd.Parameters.AddWithValue("nama", produk.namaProduk);

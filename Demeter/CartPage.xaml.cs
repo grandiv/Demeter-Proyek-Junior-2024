@@ -197,8 +197,39 @@ namespace Demeter
 
         private void PurchaseButton_Click(object sender, RoutedEventArgs e)
         {
-            // Implement purchase functionality here
-            MessageBox.Show("Purchase functionality will be implemented here.");
+            try
+            {
+                if (currentCart.DaftarBelanja.Count == 0)
+                {
+                    MessageBox.Show("Your cart is empty!", "Empty Cart", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+
+                var result = MessageBox.Show(
+                    "Are you sure you want to complete this purchase?",
+                    "Confirm Purchase",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question
+                );
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Get cart ID from first item (all items have same cart ID)
+                    int cartId = currentCart.DaftarBelanja[0].CartId;
+
+                    Customer customer = new Customer();
+                    customer.Order(cartId);
+
+                    MessageBox.Show("Purchase completed successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Refresh cart display
+                    LoadCart();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error processing purchase: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void DeleteCartItem_Click(object sender, RoutedEventArgs e)

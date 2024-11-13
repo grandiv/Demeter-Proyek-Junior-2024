@@ -14,12 +14,17 @@ namespace Demeter
         public double hargaProduk { get; set; }
         public string namaToko { get; set; }
         public string status {  get; set; }
-        public int stok { get; set; }
         public string photoUrl { get; set; }
 
-        public void updateStatus(string status)
+        private int _stok;
+        public int stok
         {
-            // TODO
+            get => _stok;
+            set
+            {
+                _stok = value;
+                status = _stok > 0 ? "Tersedia" : "Habis";
+            }
         }
     }
 }
