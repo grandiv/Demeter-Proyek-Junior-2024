@@ -11,12 +11,18 @@
     <Compile Update="CustomerProfile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="HistoryPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="CartPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HistoryPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SellerProfile.xaml">

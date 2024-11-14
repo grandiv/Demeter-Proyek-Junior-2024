@@ -9,12 +9,21 @@ Demeter
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+<<<<<<< HEAD
 C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\App.xaml
 72055657888
 
 171478257420
 2021100680569
 CartPage.xaml;CustomerDashboardWindow.xaml;CustomerProfile.xaml;LoginWindow.xaml;RegisterWindow.xaml;SellerDashboardWindow.xaml;SellerProfile.xaml;
+=======
+E:\OneDrive - UGM 365\Data Melvin\Kuliah\Sem 5\Proyek Junior\Demeter-Proyek-Junior-2024\Demeter\App.xaml
+81122820566
+
+18-745655851
+202-348525167
+CartPage.xaml;CustomerDashboardWindow.xaml;CustomerProfile.xaml;HistoryPage.xaml;LoginWindow.xaml;RegisterWindow.xaml;SellerDashboardWindow.xaml;SellerProfile.xaml;
+>>>>>>> 5488295452e5d3be6dca0137eef485de591991b9
 
 False
 
