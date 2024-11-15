@@ -38,7 +38,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" MouseLeftButtonDown="OrderButton_Click" Cursor="Hand">
                         <Image Source="/Images/OrderLogo.png" Height="25" Width="25" Visibility="Visible"></Image>
                         <TextBlock Text="Order" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
                     </StackPanel>
@@ -49,7 +49,7 @@
                     </StackPanel>
                 </Grid>
             </Grid>
-            
+
             <!-- Products Section -->
             <ScrollViewer Grid.Row="1">
                 <UniformGrid x:Name="ProductsGrid" Columns="5" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20">
@@ -82,11 +82,11 @@
                                 <TextBlock Text="Link Gambar" Margin="0,5,0,0"/>
                                 <TextBox x:Name="ImageLinkTextBox" Margin="0,0,0,10"/>
                             </StackPanel>
-                            
+
                             <!-- Product Information -->
                             <StackPanel Grid.Column="1">
                                 <Button Content="X" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" Click="CloseAddProductModal" Cursor="Hand"/>
-                                
+
                                 <TextBlock Text="Nama Produk" Margin="0,5,0,0"/>
                                 <TextBox x:Name="ProductNameTextBox" Margin="0,0,0,10"/>
 

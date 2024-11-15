@@ -58,17 +58,17 @@ namespace Demeter
                 // Get all history entries for current customer
                 string historyQuery = @"
                 SELECT 
-    h.historyid, 
-    h.tanggalbelanja, 
-    h.status, 
-    h.totalharga,
-    s.namatoko as sellername
-FROM history h
-INNER JOIN seller s ON h.sellerid = s.sellerid
-INNER JOIN customer c ON h.custid = c.custid
-INNER JOIN pengguna p ON c.userid = p.userid
-WHERE p.username = @username
-ORDER BY h.tanggalbelanja DESC";
+                    h.historyid, 
+                    h.tanggalbelanja, 
+                    h.status, 
+                    h.totalharga,
+                    s.namatoko as sellername
+                FROM history h
+                INNER JOIN seller s ON h.sellerid = s.sellerid
+                INNER JOIN customer c ON h.custid = c.custid
+                INNER JOIN pengguna p ON c.userid = p.userid
+                WHERE p.username = @username
+                ORDER BY h.tanggalbelanja DESC";
 
                 using (var cmd = new NpgsqlCommand(historyQuery, conn))
                 {
@@ -90,30 +90,63 @@ ORDER BY h.tanggalbelanja DESC";
 
                             // Header panel
                             var headerPanel = new Grid();
-                            headerPanel.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
                             headerPanel.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                            headerPanel.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+                            headerPanel.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
 
                             // Seller name
                             var sellerName = new TextBlock
                             {
                                 Text = reader["sellername"].ToString(),
-                                FontWeight = FontWeights.Bold
+                                FontWeight = FontWeights.Bold,
+                                FontSize = 16
                             };
                             Grid.SetColumn(sellerName, 0);
 
-                            // Status
+                            // Status with colored background
                             var status = new TextBlock
                             {
                                 Text = reader["status"].ToString(),
+                                FontWeight = FontWeights.Bold,
+                                Margin = new Thickness(0),
+                                HorizontalAlignment = HorizontalAlignment.Right,
+                                Padding = new Thickness(8, 4, 8, 4)
+                            };
+
+                            // Determine background color based on status
+                            string statusText = reader["status"].ToString();
+                            Color backgroundColor;
+                            switch (statusText)
+                            {
+                                case "Selesai":
+                                    backgroundColor = (Color)ColorConverter.ConvertFromString("#90EE90"); // Light green
+                                    break;
+                                case "Sedang Dikirim":
+                                    backgroundColor = (Color)ColorConverter.ConvertFromString("#ffde59"); // Light yellow
+                                    break;
+                                default: // "Menunggu Konfirmasi"
+                                    backgroundColor = (Color)ColorConverter.ConvertFromString("#E0E0E0"); // Light gray
+                                    break;
+                            }
+
+                            Border statusBorder = new Border
+                            {
+                                Background = new SolidColorBrush(backgroundColor),
+                                CornerRadius = new CornerRadius(4),
+                                Child = status,
                                 HorizontalAlignment = HorizontalAlignment.Right
                             };
-                            Grid.SetColumn(status, 2);
 
+                            Grid.SetColumn(statusBorder, 1);
+                            headerPanel.Children.Add(statusBorder);
+
+                            // Add elements to header panel
                             headerPanel.Children.Add(sellerName);
-                            headerPanel.Children.Add(status);
 
+                            // Add header panel to main panel
                             mainPanel.Children.Add(headerPanel);
+
+                            // Add main panel to history border
+                            historyBorder.Child = mainPanel;
 
                             // Products panel
                             var productsPanel = new StackPanel { Margin = new Thickness(0, 10, 0, 10) };
@@ -123,15 +156,15 @@ ORDER BY h.tanggalbelanja DESC";
                             {
                                 connProducts.Open();
                                 string productsQuery = @"
-                                SELECT 
-    p.nama as namaproduk, 
-    p.harga as hargaproduk, 
-    p.photourl as gambar,
-    COUNT(hp.produkid) as quantity
-FROM historyproduk hp
-INNER JOIN produk p ON hp.produkid = p.produkid
-WHERE hp.historyid = @historyid
-GROUP BY p.produkid, p.nama, p.harga, p.photourl";
+                            SELECT 
+                                p.nama as namaproduk, 
+                                p.harga as hargaproduk, 
+                                p.photourl as gambar,
+                                COUNT(hp.produkid) as quantity
+                            FROM historyproduk hp
+                            INNER JOIN produk p ON hp.produkid = p.produkid
+                            WHERE hp.historyid = @historyid
+                            GROUP BY p.produkid, p.nama, p.harga, p.photourl";
 
                                 using (var cmdProducts = new NpgsqlCommand(productsQuery, connProducts))
                                 {
@@ -150,31 +183,64 @@ GROUP BY p.produkid, p.nama, p.harga, p.photourl";
                                             var image = new Image
                                             {
                                                 Source = new BitmapImage(new Uri(productsReader["gambar"].ToString())),
-                                                Width = 40,
-                                                Height = 40
+                                                Width = 50,
+                                                Height = 50
                                             };
                                             Grid.SetColumn(image, 0);
+
+                                            productPanel.Children.Add(image);
+
+                                            // Product detail
+                                            var detailPanel = new Grid { Margin = new Thickness(10, 0, 10, 0) }; // Added right margin
+                                            detailPanel.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                                            detailPanel.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                                            detailPanel.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto }); // Added row for total price
 
                                             // Product name
                                             var productName = new TextBlock
                                             {
                                                 Text = productsReader["namaproduk"].ToString(),
-                                                VerticalAlignment = VerticalAlignment.Center
-                                            };
-                                            Grid.SetColumn(productName, 1);
-
-                                            // Quantity and price
-                                            var quantityPrice = new TextBlock
-                                            {
-                                                Text = $"{productsReader["quantity"]}x @ Rp{productsReader["hargaproduk"]:N0}",
                                                 VerticalAlignment = VerticalAlignment.Center,
+                                                FontWeight = FontWeights.Bold,
+                                                FontSize = 14
+                                            };
+                                            Grid.SetRow(productName, 0);
+                                            detailPanel.Children.Add(productName);
+
+
+                                            // Panel untuk kuantitas dan harga
+                                            var pricePanel = new Grid { Margin = new Thickness(0, 5, 0, 0) };
+                                            pricePanel.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto }); // Kolom kuantitas
+                                            pricePanel.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }); // Kolom harga
+
+                                            var quantityText = new TextBlock
+                                            {
+                                                Text = $"{productsReader["quantity"]}x",
+                                                VerticalAlignment = VerticalAlignment.Center, FontWeight = FontWeights.Bold,
+                                                HorizontalAlignment = HorizontalAlignment.Left,
+                                                Margin = new Thickness(0, 0, 10, 0)
+                                            };
+                                            Grid.SetColumn(quantityText, 0);
+
+                                            var priceText = new TextBlock
+                                            {
+                                                Text = $"Rp {productsReader["hargaproduk"]:N0}",
+                                                VerticalAlignment = VerticalAlignment.Center,
+                                                FontWeight = FontWeights.Bold,
                                                 HorizontalAlignment = HorizontalAlignment.Right
                                             };
-                                            Grid.SetColumn(quantityPrice, 2);
+                                            Grid.SetColumn(priceText, 1);
 
-                                            productPanel.Children.Add(image);
-                                            productPanel.Children.Add(productName);
-                                            productPanel.Children.Add(quantityPrice);
+                                            pricePanel.Children.Add(quantityText);
+                                            pricePanel.Children.Add(priceText);
+
+                                            // Tambahkan pricePanel ke detailPanel
+                                            Grid.SetRow(pricePanel, 1);
+                                            detailPanel.Children.Add(pricePanel);
+
+                                            // Tambahkan detailPanel ke kolom kedua
+                                            Grid.SetColumn(detailPanel, 1);
+                                            productPanel.Children.Add(detailPanel);
 
                                             productsPanel.Children.Add(productPanel);
                                         }
@@ -184,10 +250,37 @@ GROUP BY p.produkid, p.nama, p.harga, p.photourl";
 
                             mainPanel.Children.Add(productsPanel);
 
+                            // Add total price
+                            var totalPricePanel = new StackPanel
+                            {
+                                Orientation = Orientation.Horizontal,
+                                HorizontalAlignment = HorizontalAlignment.Right,
+                                Margin = new Thickness(0, 10, 0, 0)
+                            };
+
+                            var totalPriceText = new TextBlock
+                            {
+                                Text = $"Total: Rp{reader["totalharga"]:N0}",
+                                FontWeight = FontWeights.Bold,
+                                FontSize = 16
+                            };
+
+                            totalPricePanel.Children.Add(totalPriceText);
+                            mainPanel.Children.Add(totalPricePanel);
+
+                            // Add border lines
+                            var separator = new Border
+                            {
+                                BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E0E0E0")),
+                                BorderThickness = new Thickness(0, 1, 0, 0),
+                                Margin = new Thickness(0, 10, 0, 0)
+                            };
+                            mainPanel.Children.Add(separator);
+
                             // Footer with date
                             var orderDate = new TextBlock
                             {
-                                Text = ((DateTime)reader["tanggalbelanja"]).ToString("dd MMMM yyyy HH:mm"),
+                                Text = ((DateTime)reader["tanggalbelanja"]).ToString("dd MMMM yyyy"),
                                 HorizontalAlignment = HorizontalAlignment.Right,
                                 Margin = new Thickness(0, 5, 0, 0)
                             };

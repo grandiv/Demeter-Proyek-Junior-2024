@@ -30,7 +30,17 @@
                     <Image x:Name="HomeLogo" Source="/Images/Logo Demeter (Text).png" Height="40" Margin="20,0,0,0"/>
                 </StackPanel>
 
-                <TextBlock Text="Customer Landing Page" Grid.Column="0" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="200,0,0,0" FontWeight="Bold" />
+                <!-- Replace the TextBlock with this SearchBox section -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="200,0,0,0">
+                    <TextBox x:Name="SearchBox" 
+                         Width="300" 
+                         Height="30" 
+                         VerticalAlignment="Center"
+                         Padding="5"
+                         FontSize="14"
+                         TextChanged="SearchBox_TextChanged"/>
+                </StackPanel>
+
                 <Grid Grid.Column="1" ShowGridLines="False">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
