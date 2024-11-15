@@ -209,5 +209,70 @@ namespace Demeter
                 QuantityTextBox.Text = (stock - 1).ToString();
             }
         }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchTerm = SearchBox.Text.ToLower();
+            ProductsGrid.Children.Clear();
+
+            var products = currentUser.LoadUserProducts();
+            var filteredProducts = products.Where(p =>
+                p.namaProduk.ToLower().Contains(searchTerm)
+            ).ToList();
+
+            foreach (var product in filteredProducts)
+            {
+                // Reuse existing product display logic
+                Border productBorder = new Border
+                {
+                    Width = 200,
+                    Height = 250,
+                    Background = new SolidColorBrush(Colors.LightGray),
+                    CornerRadius = new CornerRadius(8),
+                    Margin = new Thickness(10),
+                    Tag = product
+                };
+                productBorder.MouseLeftButtonDown += ShowProductDetails;
+
+                StackPanel productPanel = new StackPanel
+                {
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    Cursor = Cursors.Hand
+                };
+
+                Image productImage = new Image
+                {
+                    Source = string.IsNullOrEmpty(product.photoUrl)
+                        ? new BitmapImage(new Uri("/Images/DefaultProduct.jpg", UriKind.Relative))
+                        : new BitmapImage(new Uri(product.photoUrl)),
+                    Width = 150,
+                    Height = 150,
+                    Margin = new Thickness(0, 10, 0, 10)
+                };
+
+                TextBlock productName = new TextBlock
+                {
+                    Text = product.namaProduk,
+                    FontSize = 16,
+                    FontWeight = FontWeights.Bold,
+                    HorizontalAlignment = HorizontalAlignment.Center
+                };
+
+                TextBlock productPrice = new TextBlock
+                {
+                    Text = $"Rp{product.hargaProduk:N0}",
+                    FontSize = 14,
+                    HorizontalAlignment = HorizontalAlignment.Center
+                };
+
+                productPanel.Children.Add(productImage);
+                productPanel.Children.Add(productName);
+                productPanel.Children.Add(productPrice);
+
+                productBorder.Child = productPanel;
+                ProductsGrid.Children.Add(productBorder);
+            }
+        }
     }
 }
