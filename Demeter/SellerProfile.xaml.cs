@@ -68,6 +68,12 @@ namespace Demeter
             Window.GetWindow(this).Close();
         }
 
+        private void OrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to the SellerProfile page
+            NavigationService.Navigate(new OrderPage());
+        }
+
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             NamaTextBlock.Visibility = Visibility.Collapsed;
@@ -84,7 +90,7 @@ namespace Demeter
             ImageLinkLabel.Visibility = Visibility.Visible;
             ImageLinkTextBlock.Visibility = Visibility.Visible;
             ImageLinkTextBox.Visibility = Visibility.Visible;
-            
+
             EditButton.Visibility = Visibility.Collapsed;
             SaveButton.Visibility = Visibility.Visible;
             CancelButton.Visibility = Visibility.Visible;

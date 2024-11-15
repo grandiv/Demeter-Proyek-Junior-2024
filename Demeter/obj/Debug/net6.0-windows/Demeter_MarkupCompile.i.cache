@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\
+C:\Users\Johan\Documents\Codingan_Repo_Sendiri\Demeter-Proyek-Junior-2024\Demeter\obj\Debug\net6.0-windows\
 Demeter
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Projects\Projun-Baru\Demeter-Proyek-Junior-2024\Demeter\App.xaml
-81122820566
+C:\Users\Johan\Documents\Codingan_Repo_Sendiri\Demeter-Proyek-Junior-2024\Demeter\App.xaml
+9-1604978686
 
-201629341621
-2021100680569
-CartPage.xaml;CustomerDashboardWindow.xaml;CustomerProfile.xaml;HistoryPage.xaml;LoginWindow.xaml;RegisterWindow.xaml;SellerDashboardWindow.xaml;SellerProfile.xaml;
+21-1180552209
+2021474335943
+CartPage.xaml;CustomerDashboardWindow.xaml;CustomerProfile.xaml;HistoryPage.xaml;LoginWindow.xaml;OrderPage.xaml;RegisterWindow.xaml;SellerDashboardWindow.xaml;SellerProfile.xaml;
 
-False
+True
 

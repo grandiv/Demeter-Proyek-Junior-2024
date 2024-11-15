@@ -36,7 +36,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center" MouseLeftButtonDown="OrderButton_Click" Cursor="Hand">
                             <Image Source="/Images/OrderLogo.png" Height="25" Width="25" Visibility="Visible"></Image>
                             <TextBlock Text="Order" HorizontalAlignment="Center" FontSize="12" Foreground="#004b0c"/>
                         </StackPanel>

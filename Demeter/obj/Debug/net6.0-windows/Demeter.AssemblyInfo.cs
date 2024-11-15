@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Demeter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+700c41545ce20719ec4dffdb5bf03c7f0a3817f4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b68cba74a9c97ac8375c3b52b92f94b619188cb3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Demeter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Demeter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

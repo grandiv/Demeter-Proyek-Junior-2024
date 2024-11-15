@@ -33,6 +33,12 @@ namespace Demeter
             SellerFrame.Navigate(new SellerProfile());
         }
 
+        private void OrderButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            // Navigate to the CustomerProfile page in the MainContentFrame
+            SellerFrame.Navigate(new OrderPage());
+        }
+
         private void ShowAddProductModal(object sender, MouseButtonEventArgs e)
         {
             // Show the Add Product modal
