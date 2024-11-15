@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Johan\\Documents\\Codingan_Repo_Sendiri\\Demeter-Proyek-Junior-2024\\Demeter\\Demeter.csproj": {}
+    "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\Demeter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Johan\\Documents\\Codingan_Repo_Sendiri\\Demeter-Proyek-Junior-2024\\Demeter\\Demeter.csproj": {
+    "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\Demeter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Johan\\Documents\\Codingan_Repo_Sendiri\\Demeter-Proyek-Junior-2024\\Demeter\\Demeter.csproj",
+        "projectUniqueName": "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\Demeter.csproj",
         "projectName": "Demeter",
-        "projectPath": "C:\\Users\\Johan\\Documents\\Codingan_Repo_Sendiri\\Demeter-Proyek-Junior-2024\\Demeter\\Demeter.csproj",
-        "packagesPath": "C:\\Users\\Johan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Johan\\Documents\\Codingan_Repo_Sendiri\\Demeter-Proyek-Junior-2024\\Demeter\\obj\\",
+        "projectPath": "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\Demeter.csproj",
+        "packagesPath": "C:\\Users\\MASTER CORE\\.nuget\\packages\\",
+        "outputPath": "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Johan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MASTER CORE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,6 +82,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.30, 6.0.30]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.30, 6.0.30]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.30, 6.0.30]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.30, 6.0.30]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -86,7 +108,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     }

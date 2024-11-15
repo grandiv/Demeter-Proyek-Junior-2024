@@ -121,10 +121,38 @@ namespace Demeter
                             {
                                 Text = reader["status"]?.ToString() ?? "Menunggu Konfirmasi",
                                 FontWeight = FontWeights.Bold,
-                                Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#004b0c")),
-                                Margin = new Thickness(0, 0, 0, 5),
-                                HorizontalAlignment = HorizontalAlignment.Right
+                                Margin = new Thickness(0),
+                                HorizontalAlignment = HorizontalAlignment.Right,
+                                Padding = new Thickness(8, 4, 8, 4),
+                                FontSize = 14 // Smaller font size
                             };
+
+                            // Determine background color based on status
+                            string statusText = reader["status"]?.ToString() ?? "Menunggu Konfirmasi";
+                            Color backgroundColor;
+                            switch (statusText)
+                            {
+                                case "Selesai":
+                                    backgroundColor = (Color)ColorConverter.ConvertFromString("#90EE90"); // Light green
+                                    break;
+                                case "Sedang Dikirim":
+                                    backgroundColor = (Color)ColorConverter.ConvertFromString("#ffde59"); // Light yellow
+                                    break;
+                                default: // "Menunggu Konfirmasi"
+                                    backgroundColor = (Color)ColorConverter.ConvertFromString("#E0E0E0"); // Light gray
+                                    break;
+                            }
+
+                            Border statusBorder = new Border
+                            {
+                                Background = new SolidColorBrush(backgroundColor),
+                                CornerRadius = new CornerRadius(4),
+                                Child = status,
+                                HorizontalAlignment = HorizontalAlignment.Right,
+                                Margin = new Thickness(0, 0, 0, 5), // Add bottom margin
+                            };
+
+                            rightPanel.Children.Add(statusBorder);
 
                             TextBlock date = new TextBlock
                             {
@@ -133,7 +161,7 @@ namespace Demeter
                                 Margin = new Thickness(0, 5, 0, 0)
                             };
 
-                            rightPanel.Children.Add(status);
+                            // rightPanel.Children.Add(status);
                             rightPanel.Children.Add(date);
 
                             Grid.SetColumn(leftPanel, 0);

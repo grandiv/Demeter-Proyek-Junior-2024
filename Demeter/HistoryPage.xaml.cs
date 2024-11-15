@@ -102,19 +102,45 @@ namespace Demeter
                             };
                             Grid.SetColumn(sellerName, 0);
 
-                            // Status
+                            // Status with colored background
                             var status = new TextBlock
                             {
                                 Text = reader["status"].ToString(),
-                                FontWeight = FontWeights.Normal,
-                                FontSize = 14,
+                                FontWeight = FontWeights.Bold,
+                                Margin = new Thickness(0),
+                                HorizontalAlignment = HorizontalAlignment.Right,
+                                Padding = new Thickness(8, 4, 8, 4)
+                            };
+
+                            // Determine background color based on status
+                            string statusText = reader["status"].ToString();
+                            Color backgroundColor;
+                            switch (statusText)
+                            {
+                                case "Selesai":
+                                    backgroundColor = (Color)ColorConverter.ConvertFromString("#90EE90"); // Light green
+                                    break;
+                                case "Sedang Dikirim":
+                                    backgroundColor = (Color)ColorConverter.ConvertFromString("#ffde59"); // Light yellow
+                                    break;
+                                default: // "Menunggu Konfirmasi"
+                                    backgroundColor = (Color)ColorConverter.ConvertFromString("#E0E0E0"); // Light gray
+                                    break;
+                            }
+
+                            Border statusBorder = new Border
+                            {
+                                Background = new SolidColorBrush(backgroundColor),
+                                CornerRadius = new CornerRadius(4),
+                                Child = status,
                                 HorizontalAlignment = HorizontalAlignment.Right
                             };
-                            Grid.SetColumn(status, 1);
+
+                            Grid.SetColumn(statusBorder, 1);
+                            headerPanel.Children.Add(statusBorder);
 
                             // Add elements to header panel
                             headerPanel.Children.Add(sellerName);
-                            headerPanel.Children.Add(status);
 
                             // Add header panel to main panel
                             mainPanel.Children.Add(headerPanel);
@@ -223,6 +249,33 @@ namespace Demeter
                             }
 
                             mainPanel.Children.Add(productsPanel);
+
+                            // Add total price
+                            var totalPricePanel = new StackPanel
+                            {
+                                Orientation = Orientation.Horizontal,
+                                HorizontalAlignment = HorizontalAlignment.Right,
+                                Margin = new Thickness(0, 10, 0, 0)
+                            };
+
+                            var totalPriceText = new TextBlock
+                            {
+                                Text = $"Total: Rp{reader["totalharga"]:N0}",
+                                FontWeight = FontWeights.Bold,
+                                FontSize = 16
+                            };
+
+                            totalPricePanel.Children.Add(totalPriceText);
+                            mainPanel.Children.Add(totalPricePanel);
+
+                            // Add border lines
+                            var separator = new Border
+                            {
+                                BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E0E0E0")),
+                                BorderThickness = new Thickness(0, 1, 0, 0),
+                                Margin = new Thickness(0, 10, 0, 0)
+                            };
+                            mainPanel.Children.Add(separator);
 
                             // Footer with date
                             var orderDate = new TextBlock
