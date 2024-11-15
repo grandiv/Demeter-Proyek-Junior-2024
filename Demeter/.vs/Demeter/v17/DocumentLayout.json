@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|e:\\onedrive - ugm 365\\data melvin\\kuliah\\sem 5\\proyek junior\\demeter-proyek-junior-2024\\demeter\\history.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:history.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|e:\\onedrive - ugm 365\\data melvin\\kuliah\\sem 5\\proyek junior\\demeter-proyek-junior-2024\\demeter\\seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:seller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -113,6 +117,7 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|c:\\projects\\projun-baru\\demeter-proyek-junior-2024\\demeter\\images\\cartlogo.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
       "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:images\\cartlogo.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     },
@@ -136,6 +141,8 @@
       "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:history.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+=======
+>>>>>>> 88398ccde7eb47fbc4e382f8575486e71ec1c072
       "AbsoluteMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|e:\\onedrive - ugm 365\\data melvin\\kuliah\\sem 5\\proyek junior\\demeter-proyek-junior-2024\\demeter\\historypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{21AD6BEB-5F2B-4506-BC70-3232F2EF729D}|Demeter.csproj|solutionrelative:historypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -193,9 +200,13 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "DocumentIndex": 4,
 =======
               "DocumentIndex": 1,
+=======
+              "DocumentIndex": 2,
+>>>>>>> 88398ccde7eb47fbc4e382f8575486e71ec1c072
               "Title": "Seller.cs",
               "DocumentMoniker": "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\Seller.cs",
               "RelativeDocumentMoniker": "Seller.cs",
@@ -203,8 +214,7 @@
               "RelativeToolTip": "Seller.cs",
               "ViewState": "AQIAAKQAAAAAAAAAAAAuwLMAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T13:12:18.589Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T13:12:18.589Z"
             },
             {
               "$type": "Document",
@@ -214,14 +224,14 @@
               "RelativeDocumentMoniker": "Customer.cs",
               "ToolTip": "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\Customer.cs",
               "RelativeToolTip": "Customer.cs",
-              "ViewState": "AQIAABUBAAAAAAAAAAAcwCcBAAAZAAAA",
+              "ViewState": "AQIAAHwBAAAAAAAAAAAcwBoBAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-13T12:48:35.579Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Produk.cs",
               "DocumentMoniker": "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\Produk.cs",
               "RelativeDocumentMoniker": "Produk.cs",
@@ -279,8 +289,12 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 3,
 >>>>>>> 5488295452e5d3be6dca0137eef485de591991b9
+=======
+              "DocumentIndex": 4,
+>>>>>>> 88398ccde7eb47fbc4e382f8575486e71ec1c072
               "Title": "CartPage.xaml.cs",
               "DocumentMoniker": "C:\\Projects\\Projun-Baru\\Demeter-Proyek-Junior-2024\\Demeter\\CartPage.xaml.cs",
               "RelativeDocumentMoniker": "CartPage.xaml.cs",
@@ -431,6 +445,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 6,
 <<<<<<< HEAD
               "Title": "LoginWindow.xaml.cs",
@@ -443,6 +458,9 @@
               "WhenOpened": "2024-10-22T10:04:20.843Z",
               "EditorCaption": ""
 =======
+=======
+              "DocumentIndex": 1,
+>>>>>>> 88398ccde7eb47fbc4e382f8575486e71ec1c072
               "Title": "History.cs",
               "DocumentMoniker": "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\History.cs",
               "RelativeDocumentMoniker": "History.cs",
@@ -450,11 +468,12 @@
               "RelativeToolTip": "History.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T12:25:50.411Z"
+              "WhenOpened": "2024-11-13T12:25:50.411Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CustomerDashboardWindow.xaml.cs",
               "DocumentMoniker": "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\CustomerDashboardWindow.xaml.cs",
               "RelativeDocumentMoniker": "CustomerDashboardWindow.xaml.cs",
@@ -467,6 +486,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 5,
 <<<<<<< HEAD
               "Title": "CustomerProfile.xaml.cs",
@@ -652,6 +672,9 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
               "WhenOpened": "2024-11-03T06:35:22.875Z"
 =======
+=======
+              "DocumentIndex": 6,
+>>>>>>> 88398ccde7eb47fbc4e382f8575486e71ec1c072
               "Title": "CustomerDashboardWindow.xaml",
               "DocumentMoniker": "E:\\OneDrive - UGM 365\\Data Melvin\\Kuliah\\Sem 5\\Proyek Junior\\Demeter-Proyek-Junior-2024\\Demeter\\CustomerDashboardWindow.xaml",
               "RelativeDocumentMoniker": "CustomerDashboardWindow.xaml",
