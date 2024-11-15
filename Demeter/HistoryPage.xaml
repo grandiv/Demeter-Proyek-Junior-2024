@@ -61,5 +61,9 @@
                 </Grid>
             </Border>
         </Grid>
+        <!-- Add this to HistoryPage.xaml inside your main Grid -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="20, 70, 20, 20">
+            <StackPanel x:Name="HistoryItemsPanel" Margin="20"/>
+        </ScrollViewer>
     </Grid>
 </Page>
