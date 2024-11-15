@@ -19,6 +19,7 @@
     <None Remove="Images\OrderLogo.png" />
     <None Remove="Images\ProfileLogo.png" />
     <None Remove="Images\Register.png" />
+    <None Remove="Images\SearchIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +41,7 @@
     <Resource Include="Images\OrderLogo.png" />
     <Resource Include="Images\ProfileLogo.png" />
     <Resource Include="Images\Register.png" />
+    <Resource Include="Images\SearchIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
