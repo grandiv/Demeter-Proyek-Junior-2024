@@ -65,11 +65,39 @@ namespace Demeter
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO pengguna (username, pass, email, role) VALUES (@username, @pass, @email, @Role)";
-                    using (var cmd = new NpgsqlCommand(query, conn))
+
+                    // Check for existing username or email
+                    string checkQuery = "SELECT username, email FROM pengguna WHERE username = @username OR email = @email";
+                    using (var checkCmd = new NpgsqlCommand(checkQuery, conn))
+                    {
+                        checkCmd.Parameters.AddWithValue("username", username);
+                        checkCmd.Parameters.AddWithValue("email", email);
+
+                        using (var reader = checkCmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string existingUsername = reader.GetString(0);
+                                string existingEmail = reader.GetString(1);
+
+                                if (existingUsername == username)
+                                {
+                                    throw new Exception("Username already exists");
+                                }
+                                if (existingEmail == email)
+                                {
+                                    throw new Exception("Email already registered");
+                                }
+                            }
+                        }
+                    }
+
+                    // If no duplicates found, proceed with registration
+                    string insertQuery = "INSERT INTO pengguna (username, pass, email, role) VALUES (@username, @pass, @email, @Role)";
+                    using (var cmd = new NpgsqlCommand(insertQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("username", username);
-                        cmd.Parameters.AddWithValue("pass", passwordHash);  // You may want to hash the password before storing it.
+                        cmd.Parameters.AddWithValue("pass", passwordHash);
                         cmd.Parameters.AddWithValue("email", email);
                         cmd.Parameters.AddWithValue("Role", role);
                         cmd.ExecuteNonQuery();
@@ -77,10 +105,11 @@ namespace Demeter
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("An error occurred: " + ex.Message);
+                    throw new Exception("Registration failed: " + ex.Message);
                 }
             }
         }
+
         public string Login(string username, string password)
         {
             using (var conn = new NpgsqlConnection(connectionString))

@@ -39,25 +39,36 @@ namespace Demeter
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            // Assuming TextBoxes for username, email, password, and ComboBox for role.
-            string username = UsernameTextBox.Text;
-            string email = EmailTextBox.Text;
-            string password = PasswordBox.Password;
-            string role = ((ComboBoxItem)RoleComboBox.SelectedItem).Content.ToString();
+            try
+            {
+                string username = UsernameTextBox.Text;
+                string email = EmailTextBox.Text;
+                string password = PasswordBox.Password;
 
-            User user = new User(username, password, email, role);
-            user.Register();
+                if (RoleComboBox.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a role");
+                    return;
+                }
 
-            MessageBox.Show("User registered successfully!");
+                string role = ((ComboBoxItem)RoleComboBox.SelectedItem).Content.ToString();
 
-            // Create a new instance of LoginWindow
-            LoginWindow loginWindow = new LoginWindow();
+                User user = new User(username, password, email, role);
+                user.Register();
 
-            // Show the LoginWindow
-            loginWindow.Show();
+                MessageBox.Show("User registered successfully!");
 
-            // Close the current RegisterWindow
-            this.Close();
+                // Create and show login window
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+
+                // Close registration window
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Registration Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }
