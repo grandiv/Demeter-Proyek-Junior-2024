@@ -73,6 +73,12 @@ namespace Demeter
             NavigationService.Navigate(new CartPage());
         }
 
+        private void HistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate to the CustomerProfile page
+            NavigationService.Navigate(new HistoryPage());
+        }
+
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             NamaTextBlock.Visibility = Visibility.Collapsed;

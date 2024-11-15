@@ -267,5 +267,147 @@ namespace Demeter
                 }
             }
         }
+
+        public void Order(int cartId)
+        {
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["AppConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                using (var transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // 1. Get customer ID
+                        string getCustomerIdQuery = @"
+                            SELECT c.custid 
+                            FROM customer c
+                            INNER JOIN pengguna p ON c.userid = p.userid
+                            WHERE p.username = @username";
+                        int customerId;
+                        using (var cmd = new NpgsqlCommand(getCustomerIdQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("username", User.CurrentUsername);
+                            var result = cmd.ExecuteScalar();
+                            if (result == null)
+                            {
+                                throw new Exception("Customer not found");
+                            }
+                            customerId = (int)result;
+                        }
+
+                        // 2. Get cart items grouped by seller
+                        string getCartItemsQuery = @"
+                            SELECT 
+                                p.sellerid,
+                                SUM(p.harga) as total_by_seller,
+                                COUNT(*) as item_count
+                            FROM cartproduk cp
+                            INNER JOIN produk p ON cp.produkid = p.produkid
+                            WHERE cp.cartid = @cartid
+                            GROUP BY p.sellerid";
+
+                        var sellerOrders = new Dictionary<int, double>();
+                        using (var cmd = new NpgsqlCommand(getCartItemsQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("cartid", cartId);
+                            using (var reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    sellerOrders.Add(reader.GetInt32(0), reader.GetDouble(1));
+                                }
+                            }
+                        }
+
+                        // 3. Create history records for each seller
+                        foreach (var sellerOrder in sellerOrders)
+                        {
+                            // Create history record
+                            string createHistoryQuery = @"
+                                INSERT INTO history (tanggalbelanja, custid, sellerid, totalharga) 
+                                VALUES (@tanggalbelanja, @custid, @sellerid, @totalharga)
+                                RETURNING historyid";
+
+                            int historyId;
+                            using (var cmd = new NpgsqlCommand(createHistoryQuery, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("tanggalbelanja", DateTime.Now);
+                                cmd.Parameters.AddWithValue("custid", customerId);
+                                cmd.Parameters.AddWithValue("sellerid", sellerOrder.Key);
+                                cmd.Parameters.AddWithValue("totalharga", sellerOrder.Value);
+                                historyId = (int)cmd.ExecuteScalar();
+                            }
+
+                            // Copy cart items to historyproduk for this seller
+                            string copyToHistoryQuery = @"
+                                INSERT INTO historyproduk (historyid, produkid)
+                                SELECT @historyid, cp.produkid
+                                FROM cartproduk cp
+                                INNER JOIN produk p ON cp.produkid = p.produkid
+                                WHERE cp.cartid = @cartid AND p.sellerid = @sellerid";
+
+                            using (var cmd = new NpgsqlCommand(copyToHistoryQuery, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("historyid", historyId);
+                                cmd.Parameters.AddWithValue("cartid", cartId);
+                                cmd.Parameters.AddWithValue("sellerid", sellerOrder.Key);
+                                cmd.ExecuteNonQuery();
+                            }
+
+                            // Update product quantities and status for this seller's products
+                            string updateProductQuantitiesQuery = @"
+                                UPDATE produk 
+                                SET stok = stok - subquery.quantity,
+                                    status = CASE 
+                                        WHEN (stok - subquery.quantity) <= 0 THEN 'Habis'
+                                        ELSE 'Tersedia'
+                                    END
+                                FROM (
+                                    SELECT produkid, COUNT(*) as quantity 
+                                    FROM cartproduk 
+                                    WHERE cartid = @cartid 
+                                    AND produkid IN (
+                                        SELECT produkid 
+                                        FROM produk 
+                                        WHERE sellerid = @sellerid
+                                    )
+                                    GROUP BY produkid
+                                ) as subquery 
+                                WHERE produk.produkid = subquery.produkid";
+
+                            using (var cmd = new NpgsqlCommand(updateProductQuantitiesQuery, conn, transaction))
+                            {
+                                cmd.Parameters.AddWithValue("cartid", cartId);
+                                cmd.Parameters.AddWithValue("sellerid", sellerOrder.Key);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        // 4. Clear cart
+                        string clearCartQuery = "DELETE FROM cartproduk WHERE cartid = @cartid";
+                        using (var cmd = new NpgsqlCommand(clearCartQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("cartid", cartId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // 5. Reset cart total
+                        string resetCartTotalQuery = "UPDATE cart SET totalharga = 0 WHERE cartid = @cartid";
+                        using (var cmd = new NpgsqlCommand(resetCartTotalQuery, conn, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("cartid", cartId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception("Failed to process order: " + ex.Message);
+                    }
+                }
+            }
+        }
     }
 }
